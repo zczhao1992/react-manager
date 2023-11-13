@@ -1,3 +1,3 @@
 # react-manager
 
-后台管理模板
+React+TS+Vite 后台管理模板
