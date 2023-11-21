@@ -13,12 +13,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ahooks": "^3.7.8",
     "antd": "^5.11.1",
     "axios": "^1.6.2",
+    "echarts": "^5.4.3",
     "less": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.18.0"
+    "react-router-dom": "^6.18.0",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
     "@types/node": "^20.9.0",

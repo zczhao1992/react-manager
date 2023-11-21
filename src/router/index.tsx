@@ -1,17 +1,64 @@
+import React from 'react'
 import { createHashRouter, Navigate, useRoutes } from 'react-router-dom'
 import Login from '@/views/login/Login'
-import Welcome from '@/views/Welcome'
+import Welcome from '@/views/welcome'
 import Error403 from '@/views/403'
 import Error404 from '@/views/404'
+import Layout from '@/layout'
+import AuthLoader from './AuthLoader'
+import { lazyLoad } from './LazyLoad'
 
-const routers = [
+export const routers = [
   {
     path: '/',
-    element: <Welcome />
+    element: <Navigate to='/welcome' />
   },
   {
     path: '/login',
     element: <Login />
+  },
+  {
+    id: 'layout',
+    element: <Layout />,
+    loader: AuthLoader,
+    children: [
+      {
+        path: '/welcome',
+        element: <Welcome />
+      },
+      {
+        path: '/dashboard',
+        element: lazyLoad(React.lazy(() => import('@/views/dashboard')))
+      },
+      {
+        path: '/userList',
+        element: lazyLoad(React.lazy(() => import('@/views/system/user')))
+      },
+      {
+        path: '/deptList',
+        element: lazyLoad(React.lazy(() => import('@/views/system/dept')))
+      },
+      {
+        path: '/menuList',
+        element: lazyLoad(React.lazy(() => import('@/views/system/menu')))
+      },
+      {
+        path: '/roleList',
+        element: lazyLoad(React.lazy(() => import('@/views/system/role')))
+      },
+      {
+        path: '/orderList',
+        element: lazyLoad(React.lazy(() => import('@/views/order/OrderList')))
+      },
+      {
+        path: '/cluster',
+        element: lazyLoad(React.lazy(() => import('@/views/order/OrderCluster')))
+      },
+      {
+        path: '/driverList',
+        element: lazyLoad(React.lazy(() => import('@/views/order/DriverList')))
+      }
+    ]
   },
   {
     path: '*',

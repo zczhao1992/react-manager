@@ -30,7 +30,8 @@
 		}
 	},
 	"include": [
-		"src"
+		"src",
+		"typings.d.ts"
 	],
 	"references": [
 		{

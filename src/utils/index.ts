@@ -2,7 +2,7 @@
  * 工具函数封装
  */
 
-// import { Menu } from '@/types/api'
+import { Menu } from '@/types/api'
 
 // 格式化金额
 export const formatMoney = (num?: number | string) => {
@@ -62,11 +62,11 @@ export const formatState = (state: number) => {
 }
 
 // 获取页面路径
-// export const getMenuPath = (list: Menu.MenuItem[]): string[] => {
-//   return list.reduce((result: string[], item: Menu.MenuItem) => {
-//     return result.concat(Array.isArray(item.children) && !item.buttons ? getMenuPath(item.children) : item.path + '')
-//   }, [])
-// }
+export const getMenuPath = (list: Menu.MenuItem[]): string[] => {
+  return list.reduce((result: string[], item: Menu.MenuItem) => {
+    return result.concat(Array.isArray(item.children) && !item.buttons ? getMenuPath(item.children) : item.path + '')
+  }, [])
+}
 
 // 递归获取路由对象
 
@@ -95,16 +95,16 @@ export const formateMobile = (mobile?: number) => {
 /**
  * 递归查找树的路径
  */
-// export const findTreeNode = (tree: Menu.MenuItem[], pathName: string, path: string[]): string[] => {
-//   if (!tree) return []
-//   for (const data of tree) {
-//     path.push(data.menuName)
-//     if (data.path === pathName) return path
-//     if (data.children?.length) {
-//       const list = findTreeNode(data.children, pathName, path)
-//       if (list?.length) return list
-//     }
-//     path.pop()
-//   }
-//   return []
-// }
+export const findTreeNode = (tree: Menu.MenuItem[], pathName: string, path: string[]): string[] => {
+  if (!tree) return []
+  for (const data of tree) {
+    path.push(data.menuName)
+    if (data.path === pathName) return path
+    if (data.children?.length) {
+      const list = findTreeNode(data.children, pathName, path)
+      if (list?.length) return list
+    }
+    path.pop()
+  }
+  return []
+}
