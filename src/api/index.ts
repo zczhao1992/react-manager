@@ -1,5 +1,8 @@
 import request from '@/utils/request'
 import { Dashboard, Dept, Login, Menu, ResultData, User } from '@/types/api'
+import '@/_mock/users'
+import '@/_mock/index'
+import '@/_mock/dashboard'
 
 export default {
   // 登录
@@ -86,5 +89,8 @@ export default {
   // 删除菜单
   deleteMenu(params: Menu.DelParams) {
     return request.post('/menu/delete', params)
+  },
+  mockText() {
+    return request.get('/api/test')
   }
 }

@@ -17,11 +17,11 @@ const env = (document.documentElement.dataset.env as ENV) || 'dev'
 
 const config = {
   dev: {
-    baseApi: '/api',
+    baseApi: '',
     uploadApi: 'http://api-driver-dev.marsview.cc',
     cdn: 'http://xxx.aliyun.com',
-    mock: false,
-    mockApi: 'https://www.fastmock.site/mock/5841b82d5672783b6fd62bb2a06aeb1f/api'
+    mock: true,
+    mockApi: '/'
   },
   test: {
     baseApi: '/api',

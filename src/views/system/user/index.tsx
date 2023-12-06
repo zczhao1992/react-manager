@@ -19,186 +19,18 @@ export default function UserList() {
   }>()
 
   const getTableData = ({ current, pageSize }: { current: number; pageSize: number }, formData: User.SearchParams) => {
-    // return api
-    //   .getUserList({
-    //     ...formData,
-    //     pageNum: current,
-    //     pageSize: pageSize
-    //   })
-    //   .then(data => {
-    //     return {
-    //       total: data.page.total,
-    //       list: data.list
-    //     }
-    //   })
-    return Promise.resolve({
-      total: 10,
-      list: [
-        {
-          __v: 0,
-          createTime: '2022-04-04T06:23:37.514Z',
-          deptId: '63bc09fe1a00ce74eeb33311',
-          job: '架构师',
-          lastLoginTime: '2023-11-18T14:03:10.827Z',
-          mobile: '17600000000',
-          role: 0,
-          roleList: '63bc3175300732c27697f1df',
-          state: 1,
-          userEmail: 'admin@imooc.com',
-          userId: 1000002,
-          userName: 'admin',
-          deptName: '大前端',
-          userImg: 'http://api-driver.marsview.cc/aa0652d013a2176bfaaaf2c00.jpeg',
-          createId: 1000002
-        },
-        {
-          userId: 1000016,
-          userName: 'JackMa',
-          userEmail: 'demo@mars.com',
-          deptId: '63bc09fe1a00ce74eeb33311',
-          state: 1,
-          role: 2,
-          roleList: '63bc3175300732c27697f1df',
-          createTime: '2023-01-09T13:45:39.865Z',
-          lastLoginTime: '2023-11-21T08:02:27.763Z',
-          __v: 0,
-          deptName: '大前端',
-          userImg: 'http://api-driver.marsview.cc/aa0652d013a2176bfaaaf2c00.jpeg',
-          job: '前端工程师',
-          mobile: '1861099666',
-          createId: 1000002
-        },
-        {
-          userId: 1000018,
-          userName: '老默',
-          userEmail: 'laomo@mars.com',
-          mobile: '18500001111',
-          deptId: '63ecee84b58729211daea5bb',
-          job: '资深前端',
-          state: 1,
-          role: 3,
-          roleList: '63bc3187300732c27697f1e6',
-          createTime: '2023-02-08T07:20:27.150Z',
-          lastLoginTime: '2023-02-08T07:20:27.150Z',
-          __v: 0,
-          deptName: '运营专员',
-          userImg: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          createId: 1000002
-        },
-        {
-          userImg: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          userId: 1000019,
-          userName: '疯驴子',
-          userEmail: 'lvzi@mars.com',
-          mobile: '18510010001',
-          deptId: '63bc09fe1a00ce74eeb33311',
-          job: '高级前端',
-          state: 1,
-          role: 3,
-          roleList: '63bc3175300732c27697f1df',
-          createTime: '2023-02-08T07:20:27.150Z',
-          lastLoginTime: '2023-02-08T07:20:27.150Z',
-          __v: 0,
-          createId: 1000002
-        },
-        {
-          userImg: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          userId: 1000020,
-          userName: '唐小虎',
-          userEmail: 'tiger@mars.com',
-          mobile: '18510020001',
-          deptId: '63bc09fe1a00ce74eeb33311',
-          job: '高级前端',
-          state: 1,
-          role: 3,
-          roleList: '63bc3175300732c27697f1df',
-          createTime: '2023-02-08T07:20:27.150Z',
-          lastLoginTime: '2023-02-08T07:20:27.150Z',
-          __v: 0,
-          createId: 1000002
-        },
-        {
-          userImg: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          userId: 1000021,
-          userName: '徐江',
-          userEmail: 'xujiang@mars.com',
-          mobile: '18012308888',
-          deptId: '62408933dc01fb458d000efb',
-          job: '专家',
-          state: 1,
-          role: 3,
-          roleList: '609781c15ccd183084f8ea3e',
-          createTime: '2023-02-08T07:20:27.150Z',
-          lastLoginTime: '2023-02-08T07:20:27.150Z',
-          __v: 0,
-          createId: 1000002
-        },
-        {
-          userImg: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          userId: 1000022,
-          userName: '高启强',
-          userEmail: 'qiqiang@mars.com',
-          mobile: '17066668888',
-          deptId: '63bc09fe1a00ce74eeb33311',
-          job: '前端专家',
-          state: 1,
-          role: 3,
-          roleList: '63bc3175300732c27697f1df',
-          createTime: '2023-02-08T07:20:27.150Z',
-          lastLoginTime: '2023-02-08T07:20:27.150Z',
-          __v: 0,
-          createId: 1000002
-        },
-        {
-          userImg: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          userId: 1000023,
-          userName: '高启盛',
-          userEmail: 'qisheng@mars.com',
-          mobile: '17622226400',
-          deptId: '63bc09fe1a00ce74eeb33311',
-          job: '资深前端',
-          state: 1,
-          role: 3,
-          roleList: '63bc3175300732c27697f1df',
-          createTime: '2023-02-08T07:20:27.150Z',
-          lastLoginTime: '2023-02-08T07:20:27.150Z',
-          __v: 0,
-          createId: 1000002
-        },
-        {
-          userImg: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          userId: 1000024,
-          userName: '陈书婷',
-          userEmail: 'shuting@mars.com',
-          mobile: '18610006001',
-          deptId: '63bc31ae300732c27697f1f4',
-          job: '测试专家',
-          state: 1,
-          role: 3,
-          roleList: '63bc3187300732c27697f1e6',
-          createTime: '2023-02-08T07:20:27.150Z',
-          lastLoginTime: '2023-02-08T07:20:27.150Z',
-          __v: 0,
-          createId: 1000002
-        },
-        {
-          userImg: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          userId: 1000025,
-          userName: '泰叔',
-          userEmail: 'taishu@mars.com',
-          mobile: '13010008888',
-          deptId: '63bc31ae300732c27697f1f4',
-          job: '测试专家',
-          state: 1,
-          role: 3,
-          roleList: '63bc3187300732c27697f1e6',
-          createTime: '2023-02-08T07:20:27.150Z',
-          lastLoginTime: '2023-02-08T07:20:27.150Z',
-          __v: 0,
-          createId: 1000002
+    return api
+      .getUserList({
+        ...formData,
+        pageNum: current,
+        pageSize: pageSize
+      })
+      .then(data => {
+        return {
+          total: data.page.total,
+          list: data.list
         }
-      ]
-    })
+      })
   }
 
   const { tableProps, search } = useAntdTable(getTableData, {
@@ -245,9 +77,9 @@ export default function UserList() {
   // 公共删除用户接口
   const handleUserDelSubmit = async (ids: number[]) => {
     try {
-      // await api.delUser({
-      //   userIds: ids
-      // })
+      await api.delUser({
+        userIds: ids
+      })
       message.success('删除成功')
       setUserIds([])
       search.reset()

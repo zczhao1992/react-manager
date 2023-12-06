@@ -30,13 +30,8 @@ export default function DashBoard() {
   // 加载折线图数据
   const renderLineChart = async () => {
     if (!lineChart) return
-    // const data = await api.getLineData()
+    const data = await api.getLineData()
 
-    const data = {
-      label: ['12月', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月'],
-      order: [958, 715, 487, 332, 796, 829, 576, 294, 153, 717, 129, 877],
-      money: [375, 630, 569, 37, 152, 885, 838, 490, 913, 544, 572, 873]
-    }
     lineChart?.setOption({
       // title: {
       //   text: '订单和流水走势图'
@@ -76,38 +71,11 @@ export default function DashBoard() {
   // 加载饼图1
   const renderPieChart1 = async () => {
     if (!pieChart1) return
-    // const data = await api.getPieCityData()
-
-    const data = [
-      {
-        value: 359,
-        name: '北京'
-      },
-      {
-        value: 228,
-        name: '上海'
-      },
-      {
-        value: 849,
-        name: '深圳'
-      },
-      {
-        value: 110,
-        name: '广州'
-      },
-      {
-        value: 676,
-        name: '杭州'
-      },
-      {
-        value: 999,
-        name: '武汉'
-      }
-    ]
+    const data = await api.getPieCityData()
 
     pieChart1?.setOption({
       title: {
-        text: '司机城市分布',
+        text: '城市分布',
         left: 'center'
       },
       tooltip: {
@@ -131,38 +99,11 @@ export default function DashBoard() {
   // 加载饼图2
   const renderPieChart2 = async () => {
     if (!pieChart2) return
-    // const data = await api.getPieAgeData()
-
-    const data = [
-      {
-        value: 74,
-        name: '北京'
-      },
-      {
-        value: 639,
-        name: '上海'
-      },
-      {
-        value: 255,
-        name: '深圳'
-      },
-      {
-        value: 727,
-        name: '广州'
-      },
-      {
-        value: 960,
-        name: '杭州'
-      },
-      {
-        value: 603,
-        name: '武汉'
-      }
-    ]
+    const data = await api.getPieAgeData()
 
     pieChart2?.setOption({
       title: {
-        text: '司机年龄分布',
+        text: '年龄分布',
         left: 'center'
       },
       tooltip: {
@@ -187,45 +128,11 @@ export default function DashBoard() {
   // 加载雷达图
   const renderRadarChart = async () => {
     if (!radarChart) return
-    // const data = await api.getRadarData()
-    const data = {
-      indicator: [
-        {
-          name: '服务态度',
-          max: 10
-        },
-        {
-          name: '在线时长',
-          max: 600
-        },
-        {
-          name: '接单率',
-          max: 100
-        },
-        {
-          name: '评分',
-          max: 5
-        },
-        {
-          name: '关注度',
-          max: 10000
-        }
-      ],
-      data: [
-        {
-          value: [8, 300, 80, 4, 9000],
-          name: '司机模型诊断'
-        }
-      ]
-    }
+    const data = await api.getRadarData()
 
     radarChart?.setOption({
-      // title: {
-      //   text: '司机模型诊断',
-      //   left: 'center'
-      // },
       legend: {
-        data: ['司机模型诊断']
+        data: ['模型诊断']
       },
       radar: {
         indicator: data.indicator
@@ -251,13 +158,8 @@ export default function DashBoard() {
   }, [])
 
   const getReportData = async () => {
-    // const data = await api.getReportData()
-    const data = {
-      driverCount: 278600,
-      totalMoney: 3984200,
-      orderCount: 1306000,
-      cityNum: 80
-    }
+    const data = await api.getReportData()
+
     setReport(data)
   }
   return (
@@ -275,7 +177,7 @@ export default function DashBoard() {
       </div>
       <div className={styles.report}>
         <div className={styles.card}>
-          <div className='title'>司机数量</div>
+          <div className='title'>数量</div>
           <div className={styles.data}>{formatNum(report?.driverCount)}个</div>
         </div>
         <div className={styles.card}>
@@ -305,7 +207,7 @@ export default function DashBoard() {
       </div>
       <div className={styles.chart}>
         <Card
-          title='司机分布'
+          title='人员分布'
           extra={
             <Button type='primary' onClick={handleRefresh}>
               刷新

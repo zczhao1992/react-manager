@@ -14,12 +14,9 @@ export default function LoginFC() {
 
   const updateToken = useStore(state => state.updateToken)
   const onFinish = async (values: Login.params) => {
-    console.log(values)
     try {
       setLoading(true)
-      // const data = await api.login(values)
-      const data =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjYzYmMzMWM4MzAwNzMyYzI3Njk3ZjFmZCIsInVzZXJJZCI6MTAwMDAxNiwidXNlck5hbWUiOiJKYWNrTWEiLCJ1c2VyRW1haWwiOiJkZW1vQG1hcnMuY29tIiwiZGVwdElkIjoiNjNiYzA5ZmUxYTAwY2U3NGVlYjMzMzExIiwic3RhdGUiOjEsInJvbGUiOjIsInJvbGVMaXN0IjoiNjNiYzMxNzUzMDA3MzJjMjc2OTdmMWRmIiwiZGVwdE5hbWUiOiLlpKfliY3nq68iLCJ1c2VySW1nIjoiaHR0cDovL2FwaS1kcml2ZXIubWFyc3ZpZXcuY2MvYWEwNjUyZDAxM2EyMTc2YmZhYWFmMmMwMC5qcGVnIiwiam9iIjoi5YmN56uv5bel56iL5biIIiwibW9iaWxlIjoiMTg2MTA5OTY2NiIsImNyZWF0ZUlkIjoxMDAwMDAyfSwiaWF0IjoxNzAwNTQ2MzkxLCJleHAiOjE3MDA1Njc5OTF9.6_P2HZJtnFDGWiFmNS3mdc3amXKiRAPdlNZGUBA9nc8'
+      const data = await api.login(values)
 
       setLoading(false)
       storage.set('token', data)

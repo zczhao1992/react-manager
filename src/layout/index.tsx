@@ -19,26 +19,12 @@ const App: React.FC = () => {
   const { pathname } = useLocation()
 
   const getUserInfo = async () => {
-    // const data = await api.getUserInfo()
-    const data = {
-      _id: '63bc321300732c27697f203',
-      userId: 1000017,
-      userName: 'Zhao.C',
-      userEmail: 'zczhao1992@163.com',
-      deptId: '63bc321300732c27697f203',
-      state: 1,
-      mobile: '21321312323',
-      job: '前端工程师',
-      role: 1,
-      roleList: '63bc321300732c27697f203',
-      createId: 0,
-      deptName: '大前端',
-      userImg: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVsiZfWPnJuuZ.png'
-    }
+    const data = await api.getUserInfo()
+
     updateUserInfo(data)
   }
 
-  // // 权限判断
+  // 权限判断
   const data = useRouteLoaderData('layout') as IAuthLoader
   const route = searchRoute(pathname, routers)
   if (route && route.meta?.auth === false) {

@@ -46,17 +46,21 @@ export const routers = [
         path: '/roleList',
         element: lazyLoad(React.lazy(() => import('@/views/system/role')))
       },
+      // {
+      //   path: '/orderList',
+      //   element: lazyLoad(React.lazy(() => import('@/views/order/OrderList')))
+      // },
+      // {
+      //   path: '/cluster',
+      //   element: lazyLoad(React.lazy(() => import('@/views/order/OrderCluster')))
+      // },
+      // {
+      //   path: '/driverList',
+      //   element: lazyLoad(React.lazy(() => import('@/views/order/DriverList')))
+      // }
       {
-        path: '/orderList',
-        element: lazyLoad(React.lazy(() => import('@/views/order/OrderList')))
-      },
-      {
-        path: '/cluster',
-        element: lazyLoad(React.lazy(() => import('@/views/order/OrderCluster')))
-      },
-      {
-        path: '/driverList',
-        element: lazyLoad(React.lazy(() => import('@/views/order/DriverList')))
+        path: '/lowcode',
+        element: lazyLoad(React.lazy(() => import('@/views/lowcode')))
       }
     ]
   },
