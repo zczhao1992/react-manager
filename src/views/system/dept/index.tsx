@@ -8,6 +8,7 @@ import { IAction } from '@/types/modal'
 import { ColumnsType } from 'antd/es/table'
 import { message } from '@/utils/AntdGlobal'
 import { formatDate } from '@/utils'
+
 export default function DeptList() {
   const [form] = useForm()
   const [data, setData] = useState<Dept.DeptItem[]>([])
@@ -57,9 +58,9 @@ export default function DeptList() {
 
   // 删除提交
   const handleDelSubmit = async (_id: string) => {
-    // await api.deleteDept({
-    //   _id
-    // })
+    await api.deleteDept({
+      _id
+    })
     message.success('删除成功')
     getDeptList()
   }
@@ -114,6 +115,7 @@ export default function DeptList() {
       }
     }
   ]
+
   return (
     <div>
       <Form className='search-form' layout='inline' form={form}>

@@ -25,140 +25,15 @@ const CreateUser = (props: IModalProp) => {
 
   // 获取部门列表
   const getDeptList = async () => {
-    // const list = await api.getDeptList()
-    const list: Dept.DeptItem[] = [
-      {
-        _id: '62408933dc01fb458d000efb',
-        parentId: '',
-        updateTime: '2022-04-04T11:30:08.002Z',
-        createTime: '2021-05-09T10:12:23.576Z',
-        deptName: '研发部',
-        userId: '1000002',
-        userName: 'admin',
-        userEmail: 'admin@mars.com',
-        __v: 0,
-        createId: 1000002,
-        children: [
-          {
-            _id: '63bc09fe1a00ce74eeb33311',
-            deptName: '大前端',
-            userName: 'admin',
-            parentId: '62408933dc01fb458d000efb',
-            updateTime: '2023-01-09T12:33:50.177Z',
-            createTime: '2023-01-09T12:33:50.177Z',
-            __v: 0,
-            createId: 1000002
-          },
-          {
-            _id: '63bc31a5300732c27697f1f1',
-            deptName: '后端',
-            userName: 'admin',
-            parentId: '62408933dc01fb458d000efb',
-            updateTime: '2023-01-09T13:45:39.875Z',
-            createTime: '2023-01-09T13:45:39.875Z',
-            __v: 0,
-            createId: 1000002
-          },
-          {
-            _id: '63bc31ae300732c27697f1f4',
-            deptName: '测试',
-            userName: 'admin',
-            parentId: '62408933dc01fb458d000efb',
-            updateTime: '2023-01-09T13:45:39.875Z',
-            createTime: '2023-01-09T13:45:39.875Z',
-            __v: 0,
-            createId: 1000002
-          },
-          {
-            _id: '63ecec3ecd258338c1a013d5',
-            deptName: '产品',
-            userName: '陈书婷',
-            parentId: '62408933dc01fb458d000efb',
-            updateTime: '2023-02-15T10:50:05.991Z',
-            createTime: '2023-02-15T10:50:05.991Z',
-            __v: 0,
-            createId: 1000002
-          }
-        ]
-      },
-      {
-        _id: '63ecebfacd258338c1a013d1',
-        deptName: '市场部',
-        userName: '老默',
-        updateTime: '2023-02-15T14:38:30.302Z',
-        createTime: '2023-02-15T10:50:05.991Z',
-        __v: 0,
-        parentId: '',
-        createId: 1000002,
-        children: [
-          {
-            _id: '63ecee84b58729211daea5bb',
-            deptName: '运营专员',
-            userName: '疯驴子',
-            parentId: '63ecebfacd258338c1a013d1',
-            updateTime: '2023-02-15T14:32:25.879Z',
-            createTime: '2023-02-15T14:32:25.879Z',
-            __v: 0,
-            createId: 1000002
-          }
-        ]
-      },
-      {
-        _id: '63eced12b58729211daea580',
-        deptName: '财务部',
-        userName: '陈书婷',
-        parentId: '',
-        updateTime: '2023-02-15T14:32:25.879Z',
-        createTime: '2023-02-15T14:32:25.879Z',
-        __v: 0,
-        createId: 1000002,
-        children: [
-          {
-            _id: '63ecee93b58729211daea5be',
-            deptName: '财务专员',
-            userName: '陈书婷',
-            parentId: '63eced12b58729211daea580',
-            updateTime: '2023-02-15T14:32:25.879Z',
-            createTime: '2023-02-15T14:32:25.879Z',
-            __v: 0,
-            createId: 1000002
-          }
-        ]
-      }
-    ]
+    const list = await api.getDeptList()
+
     setDeptList(list)
   }
 
   // 获取角色列表
   const getRoleList = async () => {
-    // const list = await roleApi.getAllRoleList()
+    const list = await roleApi.getAllRoleList()
 
-    const list: Role.RoleItem[] = [
-      {
-        _id: '609781c15ccd183084f8ea3e',
-        roleName: '产品经理'
-      },
-      {
-        _id: '63bc3175300732c27697f1df',
-        roleName: '研发'
-      },
-      {
-        _id: '63bc3187300732c27697f1e6',
-        roleName: '测试'
-      },
-      {
-        _id: '63fe19d503b115e52a6ac6fe',
-        roleName: '研发经理'
-      },
-      {
-        _id: '63fe19eb03b115e52a6ac707',
-        roleName: '市场部'
-      },
-      {
-        _id: '63fe19f303b115e52a6ac70b',
-        roleName: '运营部专用'
-      }
-    ]
     setRoleList(list)
   }
 
@@ -188,10 +63,10 @@ const CreateUser = (props: IModalProp) => {
         userImg: img
       }
       if (action === 'create') {
-        // await api.createUser(params)
+        await api.createUser(params)
         message.success('创建成功')
       } else {
-        // await api.editUser(params)
+        await api.editUser(params)
         message.success('修改成功')
       }
       handleCancel()

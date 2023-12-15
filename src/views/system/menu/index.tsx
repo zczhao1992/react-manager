@@ -8,6 +8,7 @@ import { ColumnsType } from 'antd/es/table'
 import { message } from '@/utils/AntdGlobal'
 import { formatDate } from '@/utils'
 import CreateMenu from './CreateMenu'
+
 export default function MenuList() {
   const [form] = useForm()
   const [data, setData] = useState<Menu.MenuItem[]>([])

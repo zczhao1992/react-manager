@@ -44,9 +44,9 @@ export default function CreateDept(props: IModalProp<Dept.EditParams>) {
     const valid = await form.validateFields()
     if (valid) {
       if (action === 'create') {
-        // await api.createDept(form.getFieldsValue())
+        await api.createDept(form.getFieldsValue())
       } else {
-        // await api.eidtDept(form.getFieldsValue())
+        await api.eidtDept(form.getFieldsValue())
       }
       message.success('操作成功')
       handleCancel()

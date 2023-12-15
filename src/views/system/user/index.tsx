@@ -152,6 +152,7 @@ export default function UserList() {
       }
     }
   ]
+
   return (
     <div className='user-list'>
       <SearchForm form={form} initialValues={{ state: 1 }} submit={search.submit} reset={search.reset}>
