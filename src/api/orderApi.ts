@@ -1,5 +1,7 @@
 import request from '@/utils/request'
 import { Order, ResultData, Role } from '@/types/api'
+import '@/_mock/order'
+
 export default {
   // 获取订单列表
   getOrderList(params: Order.Params) {

@@ -1,7 +1,7 @@
 import Mock from 'mockjs'
 
 // 用户列表
-Mock.mock('/users/list', 'get', () => {
+Mock.mock(/\/users\/list/, 'get', () => {
   return {
     code: 0,
     data: {
@@ -1148,7 +1148,7 @@ Mock.mock('/dept/delete', 'post', () => {
 })
 
 // 菜单列表
-Mock.mock('/menu/list', 'get', () => {
+Mock.mock(/\/menu\/list/, 'get', () => {
   return {
     code: 0,
     data: [

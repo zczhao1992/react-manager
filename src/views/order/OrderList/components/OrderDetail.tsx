@@ -4,6 +4,7 @@ import { useImperativeHandle, useState } from 'react'
 import api from '@/api/orderApi'
 import { Order } from '@/types/api'
 import { formatDate, formatMoney, formateMobile } from '@/utils'
+
 export default function OrderDetail(props: IDetailProp) {
   const [visbile, setVisible] = useState(false)
   const [detail, setDetail] = useState<Order.OrderItem>()

@@ -1,39 +1,53 @@
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from 'antd'
+import { useNavigate } from 'react-router-dom'
+import Card from './components/Card'
+import ListSearch from './components/ListSearch'
+import { PlusOutlined } from '@ant-design/icons'
+import api from '@/api/lowCodeApi'
+import styles from './index.module.less'
 
 export default function LowCode() {
-  const [num, setNum] = useState(0)
+  const nav = useNavigate()
 
-  const r = useRef(0)
+  const [list, setList] = useState([])
+
+  const getList = async () => {
+    const data = await api.getLowCodeListService({ title: '' })
+
+    setList(data.list as [])
+  }
 
   useEffect(() => {
-    console.log('render', r)
-    return () => {
-      console.log('卸载')
-    }
-  }, [num])
+    getList()
+  }, [])
 
-  const aa = useMemo(() => {
-    return <>{r.current}</>
-  }, [r.current])
+  const handleCreateClick = async () => {
+    let data = await api.createLowCodeService()
+
+    nav(`/editor/${data.id}`)
+  }
 
   return (
     <>
-      {aa}
-      <div>{num}</div>
-      <Button
-        onClick={() => {
-          r.current = r.current + 1
-          setNum(num + 1)
-          console.log('location', location)
-          // const params = new URLSearchParams(location.search)
-          // setTimeout(() => {
-          //   location.href = params.get('callback') || '/welcome'
-          // })
-        }}
-      >
-        ddd
-      </Button>
+      <div className={styles.header}>
+        <div className={styles.left}>
+          <Button type='primary' size='large' icon={<PlusOutlined />} onClick={handleCreateClick}>
+            新建
+          </Button>
+        </div>
+        <div className={styles.right}>
+          <ListSearch />
+        </div>
+      </div>
+      <div className={styles.content}>
+        {/* 列表 */}
+        {list.length > 0 &&
+          list.map((q: any) => {
+            const { _id } = q
+            return <Card key={_id} {...q} />
+          })}
+      </div>
     </>
   )
 }

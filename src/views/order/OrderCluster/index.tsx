@@ -1,11 +1,9 @@
 import { Select } from 'antd'
 import { useEffect, useState } from 'react'
 import api from '@/api/orderApi'
+
 export default function OrderCluster() {
   const [cityId, setCityId] = useState(10001)
-  useEffect(() => {
-    getCityData()
-  }, [cityId])
 
   const getCityData = async () => {
     const data = await api.getCityData(cityId)
@@ -13,6 +11,10 @@ export default function OrderCluster() {
       renderMap(data)
     })
   }
+
+  useEffect(() => {
+    getCityData()
+  }, [cityId])
 
   const renderMap = (data: Array<{ lng: string; lat: string }>) => {
     const map = new window.BMapGL.Map('clusterMap')

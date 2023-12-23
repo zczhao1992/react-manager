@@ -65,6 +65,10 @@ export const routers = [
     ]
   },
   {
+    path: '/editor/:id',
+    element: lazyLoad(React.lazy(() => import('@/views/editor')))
+  },
+  {
     path: '*',
     element: <Navigate to='/404' />
   },

@@ -5,6 +5,7 @@ import type { MenuProps } from 'antd'
 import { useStore } from '@/store'
 import storage from '@/utils/storage'
 import BreadCrumb from './BreadCrumb'
+import userImg from '@/assets/images/avatar.png'
 import styles from './index.module.less'
 
 const NavHeader = () => {
@@ -55,7 +56,7 @@ const NavHeader = () => {
         </div>
         <BreadCrumb />
       </div>
-      <div className='right'>
+      <div className={styles.right}>
         <Switch
           checked={isDark}
           checkedChildren='暗黑'
@@ -64,7 +65,10 @@ const NavHeader = () => {
           onChange={handleSwitch}
         />
         <Dropdown menu={{ items, onClick }} trigger={['click']}>
-          <span className={styles.nickName}>{userInfo.userName}</span>
+          <div className={styles.info}>
+            <img src={userImg} className={styles.userImg} />
+            <span className={styles.nickName}>{userInfo.userName}</span>
+          </div>
         </Dropdown>
       </div>
     </div>

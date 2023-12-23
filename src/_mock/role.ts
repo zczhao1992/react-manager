@@ -1,6 +1,6 @@
 import Mock from 'mockjs'
 
-Mock.mock('/roles/list', 'get', () => {
+Mock.mock(/\/roles\/list/, 'get', () => {
   return {
     code: 0,
     data: {

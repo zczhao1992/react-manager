@@ -264,3 +264,19 @@ export namespace Order {
     createTime: string // 创建时间
   }
 }
+
+export namespace LowCode {
+  export interface LowCodeId {
+    id: string
+  }
+  export interface LowCodeSearch {
+    title: string
+  }
+  export interface LowCodeItem {
+    _id: string
+    title: string
+    isPublished: boolean
+    answerCount: number
+    createdAt: string
+  }
+}

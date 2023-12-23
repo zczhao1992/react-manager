@@ -984,7 +984,6 @@ Mock.mock('/users/getPermissionList', 'get', () => {
             }
           ]
         },
-
         {
           _id: '63f07a438c74bdc1340c2851',
           menuType: 1,
