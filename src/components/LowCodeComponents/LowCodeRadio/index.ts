@@ -5,7 +5,7 @@
 
 import Component from './Component'
 import PropComponent from './PropComponent'
-import StatComponent from './StatComponent'
+
 import { LowCodeRadioDefaultProps } from './interface'
 
 export * from './interface'
@@ -15,6 +15,5 @@ export default {
   type: 'LowCodeRadio',
   Component,
   PropComponent,
-  defaultProps: LowCodeRadioDefaultProps,
-  StatComponent
+  defaultProps: LowCodeRadioDefaultProps
 }

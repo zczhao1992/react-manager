@@ -5,7 +5,6 @@
 
 import Component from './Component'
 import PropComponent from './PropComponent'
-import StatComponent from './StatComponent'
 import { LowCodeCheckboxDefaultProps } from './interface'
 
 export * from './interface'
@@ -15,6 +14,5 @@ export default {
   type: 'LowCodeCheckbox', // 要和后端统一好
   Component,
   PropComponent,
-  StatComponent,
   defaultProps: LowCodeCheckboxDefaultProps
 }
