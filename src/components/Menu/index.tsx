@@ -1,7 +1,7 @@
 import React from 'react'
 import { Menu } from 'antd'
 import { useLocation, useNavigate, useRouteLoaderData } from 'react-router-dom'
-import { useStore } from '@/store'
+import { useUserStore } from '@/store/useUserStore'
 import type { MenuProps, MenuTheme } from 'antd/es/menu'
 import { useEffect, useState } from 'react'
 import { Menu as IMenu } from '@/types/api'
@@ -12,7 +12,7 @@ import styles from './index.module.less'
 const SideMenu = () => {
   const [menuList, setMenuList] = useState<MenuItem[]>([])
   const navigate = useNavigate()
-  const { collapsed, isDark } = useStore(state => ({ collapsed: state.collapsed, isDark: state.isDark }))
+  const { collapsed, isDark } = useUserStore(state => ({ collapsed: state.collapsed, isDark: state.isDark }))
   const data: any = useRouteLoaderData('layout')
 
   const [selectedKeys, setSelectedKeys] = useState<string[]>([])

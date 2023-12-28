@@ -1,4 +1,4 @@
-import { useStore } from '@/store'
+import { useUserStore } from '@/store/useUserStore'
 import { formatDate, formatNum, formatMoney, formatState } from '@/utils'
 import { Descriptions, Card, Button } from 'antd'
 import * as echarts from 'echarts'
@@ -10,7 +10,7 @@ import userImg from '@/assets/images/avatar.png'
 import styles from './index.module.less'
 
 export default function DashBoard() {
-  const userInfo = useStore(state => state.userInfo)
+  const userInfo = useUserStore(state => state.userInfo)
   const [report, setReport] = useState<Dashboard.ReportData>()
 
   // 初始化折线图

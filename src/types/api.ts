@@ -1,4 +1,5 @@
 // 接口类型定义
+import { ComponentPropsType } from '../components/LowCodeComponents/index'
 
 export interface Result<T = any> {
   code: number
@@ -269,14 +270,43 @@ export namespace LowCode {
   export interface LowCodeId {
     id: string
   }
+
+  export interface LowCodeCompontentType {
+    fe_id: string
+    type: string
+    title: string
+    isHidden: boolean
+    isLocked: boolean
+    props: ComponentPropsType
+  }
+
+  export interface LowCodeInfo {
+    id: string
+    title: string
+    desc: string
+    js: string
+    css: string
+    isDeleted: boolean
+    isPublished: boolean
+    componentList: Array<LowCodeCompontentType>
+  }
+
   export interface LowCodeSearch {
     title: string
   }
-  export interface LowCodeItem {
+  export interface LowCodeListItem {
     _id: string
     title: string
     isPublished: boolean
     answerCount: number
     createdAt: string
+  }
+  export interface LowCodeUpdateItem {
+    title: string
+    desc: string
+    js: string
+    css: string
+    isPublished: boolean
+    componentList: Array<LowCodeCompontentType>
   }
 }

@@ -111,7 +111,7 @@ function getComponentList() {
 }
 
 // 获取单个信息
-Mock.mock('/lowcode/:id', 'get', () => {
+Mock.mock(/\/lowcode\/item/, 'get', () => {
   return {
     code: 0,
     data: {
@@ -152,6 +152,15 @@ Mock.mock(/\/lowcode\/list/, 'get', opt => {
       },
       list: getQuestionList()
     },
+    msg: 'success'
+  }
+})
+
+// 更新
+Mock.mock(/\/lowcode\/update/, 'post', () => {
+  return {
+    code: 0,
+    data: {},
     msg: 'success'
   }
 })

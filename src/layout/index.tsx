@@ -5,7 +5,7 @@ import NavHeader from '@/components/NavHeader'
 import NavFooter from '@/components/NavFooter'
 import Menu from '@/components/Menu'
 import api from '@/api'
-import { useStore } from '@/store'
+import { useUserStore } from '@/store/useUserStore'
 import { IAuthLoader } from '@/router/AuthLoader'
 import { searchRoute } from '@/utils'
 import { routers } from '@/router'
@@ -15,7 +15,7 @@ import styles from './index.module.less'
 const { Content, Sider } = Layout
 
 const App: React.FC = () => {
-  const { collapsed, userInfo, updateUserInfo } = useStore()
+  const { collapsed, userInfo, updateUserInfo } = useUserStore()
   const { pathname } = useLocation()
 
   const getUserInfo = async () => {

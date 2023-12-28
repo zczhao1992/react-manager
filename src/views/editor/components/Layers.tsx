@@ -2,22 +2,14 @@ import { FC, useState, ChangeEvent } from 'react'
 import classNames from 'classnames'
 import { message, Input, Button, Space } from 'antd'
 import { EyeInvisibleOutlined, LockOutlined } from '@ant-design/icons'
-// import { useDispatch } from 'react-redux'
-// import useGetComponentInfo from '../../../hooks/useGetComponentInfo'
-// import {
-//   changeSelectedId,
-//   changeComponentTitle,
-//   toggleComponentLocked,
-//   changeComponentHidden,
-//   moveComponent
-// } from '../../../store/componentsReducer'
-import SortableContainer from '../../../components/DragSortable/SortableContainer'
-import SortableItem from '../../../components/DragSortable/SortableItem'
+import { useLowCodeStore } from '@/store/useLowCodeStore'
+
+import SortableContainer from '@/components/DragSortable/SortableContainer'
+import SortableItem from '@/components/DragSortable/SortableItem'
 import styles from './Layers.module.less'
 
 const Layers: FC = () => {
-  const { componentList, selectedId } = useGetComponentInfo()
-  const dispatch = useDispatch()
+  const { componentList, selectedId, changeSelectedId, changeComponentTitle } = useLowCodeStore()
 
   // 记录当前正在修改标题的组件
   const [changingTitleId, setChangingTitleId] = useState('')
@@ -31,7 +23,7 @@ const Layers: FC = () => {
     }
     if (fe_id !== selectedId) {
       // 当前组件未被选中，执行选中
-      // dispatch(changeSelectedId(fe_id))
+      changeSelectedId(fe_id)
       setChangingTitleId('')
       return
     }
@@ -45,7 +37,7 @@ const Layers: FC = () => {
     const newTitle = event.target.value.trim()
     if (!newTitle) return
     if (!selectedId) return
-    // dispatch(changeComponentTitle({ fe_id: selectedId, title: newTitle }))
+    changeComponentTitle({ fe_id: selectedId, title: newTitle })
   }
 
   // 切换 隐藏/显示

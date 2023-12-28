@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { User } from '@/types/api'
 import storage from '@/utils/storage'
 
-export const useStore = create<{
+export const useUserStore = create<{
   token: string
   userInfo: User.UserItem
   collapsed: boolean

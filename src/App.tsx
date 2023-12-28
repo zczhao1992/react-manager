@@ -3,7 +3,7 @@ import { RouterProvider } from 'react-router'
 import { ConfigProvider, App as AntdApp, theme } from 'antd'
 import AntdGlobal from './utils/AntdGlobal'
 import router from './router'
-import { useStore } from './store'
+import { useUserStore } from './store/useUserStore'
 import './App.less'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   //     <Router />
   //   </BrowserRouter>
   // )
-  const isDark = useStore(state => state.isDark)
+  const isDark = useUserStore(state => state.isDark)
 
   return (
     <ConfigProvider

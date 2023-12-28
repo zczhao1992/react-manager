@@ -1,26 +1,25 @@
 import { FC, useCallback } from 'react'
 import { nanoid } from 'nanoid'
-import { componentConfGroup, ComponentConfType } from '../../../components/LowCodeComponents'
+import { componentConfGroup, ComponentConfType } from '@/components/LowCodeComponents'
 import { Typography } from 'antd'
-// import { useDispatch } from "react-redux";
-// import { addComponent } from "../../../store/componentsReducer";
+import { useLowCodeStore } from '@/store/useLowCodeStore'
 import styles from './ComponentLib.module.less'
 
 const { Title } = Typography
 
 function GenComponent(c: ComponentConfType) {
   const { title, type, Component, defaultProps } = c
-  // const dispatch = useDispatch();
+  const { addComponent } = useLowCodeStore()
 
   const handleClick = useCallback(() => {
-    // dispatch(
-    //   addComponent({
-    //     fe_id: nanoid(), // 前端生成的 id
-    //     title,
-    //     type,
-    //     props: defaultProps,
-    //   })
-    // );
+    addComponent({
+      fe_id: nanoid(), // 前端生成的 id
+      title,
+      type,
+      isHidden: false,
+      isLocked: false,
+      props: defaultProps
+    })
   }, [])
 
   return (

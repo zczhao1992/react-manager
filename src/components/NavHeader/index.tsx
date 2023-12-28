@@ -2,14 +2,14 @@ import { useEffect } from 'react'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import { Switch, Dropdown } from 'antd'
 import type { MenuProps } from 'antd'
-import { useStore } from '@/store'
+import { useUserStore } from '@/store/useUserStore'
 import storage from '@/utils/storage'
 import BreadCrumb from './BreadCrumb'
 import userImg from '@/assets/images/avatar.png'
 import styles from './index.module.less'
 
 const NavHeader = () => {
-  const { userInfo, collapsed, isDark, updateCollapsed, updateTheme } = useStore()
+  const { userInfo, collapsed, isDark, updateCollapsed, updateTheme } = useUserStore()
   useEffect(() => {
     handleSwitch(isDark)
   }, [])

@@ -6,7 +6,7 @@ import styles from './Card.module.less'
 
 const { confirm } = Modal
 
-export default function Card(props: LowCode.LowCodeItem) {
+export default function Card(props: LowCode.LowCodeListItem) {
   const nav = useNavigate()
   const { _id, title, createdAt, answerCount, isPublished } = props
 

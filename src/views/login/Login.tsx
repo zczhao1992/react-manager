@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useStore } from '@/store'
+import { useUserStore } from '@/store/useUserStore'
 import { Button, Form, Input, message } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import loginLeft from '@/assets/images/login_left.png'
@@ -12,7 +12,7 @@ import styles from './index.module.less'
 export default function LoginFC() {
   const [loading, setLoading] = useState(false)
 
-  const updateToken = useStore(state => state.updateToken)
+  const updateToken = useUserStore(state => state.updateToken)
   const onFinish = async (values: Login.params) => {
     try {
       setLoading(true)
