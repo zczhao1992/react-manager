@@ -33,7 +33,7 @@ function GenComponent(c: ComponentConfType) {
 
 const Lib: FC = () => {
   return (
-    <>
+    <div className={styles.listWarp}>
       {componentConfGroup.map((group, index) => {
         const { groupId, groupName, components } = group
         return (
@@ -45,7 +45,7 @@ const Lib: FC = () => {
           </div>
         )
       })}
-    </>
+    </div>
   )
 }
 

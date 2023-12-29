@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 100vh;
   background-color: #f0f2f5;
+  overflow: hidden;
 }
 
 .content-wrapper {
@@ -11,8 +12,10 @@
 }
 
 .content {
+  padding: 12px 0;
   margin: 0 24px;
   display: flex;
+  justify-content: space-between;
   height: 100%;
 
   .left {
@@ -22,18 +25,16 @@
   }
 
   .main {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
+    // flex: 1;
 
     .canvas-wrapper {
-      position: absolute;
+      // position: absolute;
       width: 400px;
-      height: 712px;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      overflow: auto;
+      // height: 712px;
+      // top: 50%;
+      // left: 50%;
+      // transform: translateX(-50%) translateY(-50%);
+
       box-shadow: 0 2px 10px #0000001f;
     }
   }

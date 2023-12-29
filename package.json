@@ -24,8 +24,10 @@
     "ahooks": "^3.7.8",
     "antd": "^5.11.1",
     "axios": "^1.6.2",
+    "classnames": "^2.5.0",
     "echarts": "^5.4.3",
     "less": "^4.2.0",
+    "lodash.clonedeep": "^4.5.0",
     "mockjs": "^1.1.0",
     "nanoid": "^4.0.2",
     "qrcode.react": "^3.1.0",
@@ -36,6 +38,7 @@
     "zustand": "^4.4.6"
   },
   "devDependencies": {
+    "@types/lodash.clonedeep": "^4.5.9",
     "@types/mockjs": "^1.0.10",
     "@types/node": "^20.9.0",
     "@types/react": "^18.2.15",

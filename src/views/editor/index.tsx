@@ -1,4 +1,4 @@
-// import EditCanvas from './EditCanvas'
+import EditCanvas from './components/EditCanvas'
 import EditHeader from './components/EditHeader'
 import LeftPanel from './components/LeftPanel'
 import RightPanel from './components/RightPanel'
@@ -17,19 +17,19 @@ export default function Editor() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={clearSelectedId}>
       <EditHeader />
-      <div className={styles['content-wrapper']}>
-        <div className={styles.content}>
-          <div className={styles.left}>
-            <LeftPanel />
+      <div className={styles.content}>
+        <div className={styles.left}>
+          <LeftPanel />
+        </div>
+        <div className={styles.main}>
+          <div className={styles['canvas-wrapper']}>
+            <EditCanvas loading={loading} />
           </div>
-          <div className={styles.main} onClick={clearSelectedId}>
-            <div className={styles['canvas-wrapper']}>{/* <EditCanvas loading={loading} /> */}</div>
-          </div>
-          <div className={styles.right}>
-            <RightPanel />
-          </div>
+        </div>
+        <div className={styles.right}>
+          <RightPanel />
         </div>
       </div>
     </div>

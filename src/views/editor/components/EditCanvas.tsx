@@ -1,41 +1,35 @@
-import React, { FC, MouseEvent } from 'react'
+import { FC, MouseEvent } from 'react'
 import { Spin } from 'antd'
-import { useDispatch } from 'react-redux'
 import classNames from 'classnames'
-import useGetComponentInfo from '../../../hooks/useGetComponentInfo'
-import { getComponentConfByType } from '../../../components/QuestionComponents/index'
-import { ComponentInfoType, changeSelectedId, moveComponent } from '../../../store/componentsReducer'
-import useBindCanvasKeyPress from '../../../hooks/useBindCanvasKeyPress'
-import SortableContainer from '../../../components/DragSortable/SortableContainer'
-import SortableItem from '../../../components/DragSortable/SortableItem'
+import { useLowCodeStore } from '@/store/useLowCodeStore'
+import { getComponentConfByType } from '@/components/LowCodeComponents'
+import { LowCode } from '@/types/api'
+import useBindCanvasKeyPress from '@/hook/useBindCanvasKeyPress'
+import SortableContainer from '@/components/DragSortable/SortableContainer'
+import SortableItem from '@/components/DragSortable/SortableItem'
 import styles from './EditCanvas.module.less'
-
-// 临时静态展示一下 Title Input 的效果
-// import QuestionTitle from "../../../components/QuestionComponents/QuestionTitle/Component";
-// import QuestionInput from "../../../components/QuestionComponents/QuestionInput/Component";
 
 type PropsType = {
   loading: boolean
 }
 
-function genComponent(componentInfo: ComponentInfoType) {
+function genComponent(componentInfo: LowCode.LowCodeCompontentType) {
   const { type, props } = componentInfo // 每个组件的信息，是从 redux store 获取的（服务端获取）
 
   const componentConf = getComponentConfByType(type)
   if (componentConf == null) return null
 
   const { Component } = componentConf
+
   return <Component {...props} />
 }
 
 const EditCanvas: FC<PropsType> = ({ loading }) => {
-  const { componentList, selectedId } = useGetComponentInfo()
-
-  const dispatch = useDispatch()
+  const { moveComponent, changeSelectedId, componentList, selectedId } = useLowCodeStore()
 
   function handleClick(event: MouseEvent, id: string) {
     event.stopPropagation()
-    dispatch(changeSelectedId(id))
+    changeSelectedId(id)
   }
 
   // 绑定快捷键
@@ -56,7 +50,7 @@ const EditCanvas: FC<PropsType> = ({ loading }) => {
 
   // 拖拽排序结束
   function handleDragEnd(oldIndex: number, newIndex: number) {
-    dispatch(moveComponent({ oldIndex, newIndex }))
+    moveComponent({ oldIndex, newIndex })
   }
 
   return (

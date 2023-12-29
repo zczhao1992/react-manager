@@ -9,7 +9,15 @@ import SortableItem from '@/components/DragSortable/SortableItem'
 import styles from './Layers.module.less'
 
 const Layers: FC = () => {
-  const { componentList, selectedId, changeSelectedId, changeComponentTitle } = useLowCodeStore()
+  const {
+    componentList,
+    selectedId,
+    changeSelectedId,
+    changeComponentTitle,
+    changeComponentHidden,
+    toggleComponentLocked,
+    moveComponent
+  } = useLowCodeStore()
 
   // 记录当前正在修改标题的组件
   const [changingTitleId, setChangingTitleId] = useState('')
@@ -42,12 +50,12 @@ const Layers: FC = () => {
 
   // 切换 隐藏/显示
   function changeHidden(fe_id: string, isHidden: boolean) {
-    // dispatch(changeComponentHidden({ fe_id, isHidden }))
+    changeComponentHidden({ fe_id, isHidden })
   }
 
   // 切换 锁定/解锁
   function changeLocked(fe_id: string) {
-    // dispatch(toggleComponentLocked({ fe_id }))
+    toggleComponentLocked({ fe_id })
   }
 
   // SortableContainer 组件的 items 属性，需要每个 item 都有 id
@@ -57,7 +65,7 @@ const Layers: FC = () => {
 
   // 拖拽排序结束
   function handleDragEnd(oldIndex: number, newIndex: number) {
-    // dispatch(moveComponent({ oldIndex, newIndex }))
+    moveComponent({ oldIndex, newIndex })
   }
 
   return (

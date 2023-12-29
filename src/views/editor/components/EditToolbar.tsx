@@ -11,70 +11,74 @@ import {
   UndoOutlined,
   RedoOutlined
 } from '@ant-design/icons'
-
+import { useLowCodeStore } from '@/store/useLowCodeStore'
 import { ActionCreators as UndoActionCreators } from 'redux-undo'
 
 const EditToolbar: FC = () => {
-  // const dispatch = useDispatch();
+  const {
+    selectedId,
+    componentList,
+    selectedComponent,
+    copiedComponent,
+    removeSelectedComponent,
+    changeComponentHidden,
+    toggleComponentLocked,
+    copySelectedComponent,
+    pasteCopiedComponent,
+    moveComponent
+  } = useLowCodeStore()
+  const { isLocked } = selectedComponent || {}
 
-  // const { selectedId, componentList, selectedComponent, copiedComponent } =
-  //   useGetComponentInfo();
-  // const { isLocked } = selectedComponent || {};
-
-  // const length = componentList.length;
-  // const selectedIndex = componentList.findIndex((c) => c.fe_id === selectedId);
-  // const isFirst = selectedIndex <= 0; // 第一个
-  // const isLast = selectedIndex + 1 >= length; // 最后一个
+  const length = componentList.length
+  const selectedIndex = componentList.findIndex(c => c.fe_id === selectedId)
+  const isFirst = selectedIndex <= 0 // 第一个
+  const isLast = selectedIndex + 1 >= length // 最后一个
 
   // 删除组件
   function handleDelete() {
-    // dispatch(removeSelectedComponent());
+    removeSelectedComponent()
   }
 
   // 隐藏组件
   function handleHidden() {
-    // dispatch(changeComponentHidden({ fe_id: selectedId, isHidden: true }));
+    changeComponentHidden({ fe_id: selectedId, isHidden: true })
   }
 
   // 锁定组件
   function handleLock() {
-    // dispatch(toggleComponentLocked({ fe_id: selectedId }));
+    toggleComponentLocked({ fe_id: selectedId })
   }
 
   // 复制
   function copy() {
-    // dispatch(copySelectedComponent());
+    copySelectedComponent()
   }
 
   // 粘贴
   function paste() {
-    // dispatch(pasteCopiedComponent());
+    pasteCopiedComponent()
   }
 
   // 上移
   function moveUp() {
-    // if (isFirst) return;
-    // dispatch(
-    //   moveComponent({ oldIndex: selectedIndex, newIndex: selectedIndex - 1 })
-    // );
+    if (isFirst) return
+    moveComponent({ oldIndex: selectedIndex, newIndex: selectedIndex - 1 })
   }
 
   // 下移
   function moveDown() {
-    // if (isLast) return;
-    // dispatch(
-    //   moveComponent({ oldIndex: selectedIndex, newIndex: selectedIndex + 1 })
-    // );
+    if (isLast) return
+    moveComponent({ oldIndex: selectedIndex, newIndex: selectedIndex + 1 })
   }
 
   // 撤销
   function undo() {
-    // dispatch(UndoActionCreators.undo());
+    UndoActionCreators.undo()
   }
 
   // 重做
   function redo() {
-    // dispatch(UndoActionCreators.redo());
+    UndoActionCreators.redo()
   }
 
   return (
@@ -90,35 +94,20 @@ const EditToolbar: FC = () => {
           shape='circle'
           icon={<LockOutlined />}
           onClick={handleLock}
-          // type={isLocked ? 'primary' : 'default'}
+          type={isLocked ? 'primary' : 'default'}
         ></Button>
       </Tooltip>
       <Tooltip title='复制'>
         <Button shape='circle' icon={<CopyOutlined />} onClick={copy}></Button>
       </Tooltip>
       <Tooltip title='粘贴'>
-        <Button
-          shape='circle'
-          icon={<BlockOutlined />}
-          onClick={paste}
-          // disabled={copiedComponent == null}
-        ></Button>
+        <Button shape='circle' icon={<BlockOutlined />} onClick={paste} disabled={copiedComponent == null}></Button>
       </Tooltip>
       <Tooltip title='上移'>
-        <Button
-          shape='circle'
-          icon={<UpOutlined />}
-          onClick={moveUp}
-          // disabled={isFirst}
-        ></Button>
+        <Button shape='circle' icon={<UpOutlined />} onClick={moveUp} disabled={isFirst}></Button>
       </Tooltip>
       <Tooltip title='下移'>
-        <Button
-          shape='circle'
-          icon={<DownOutlined />}
-          onClick={moveDown}
-          //  disabled={isLast}
-        ></Button>
+        <Button shape='circle' icon={<DownOutlined />} onClick={moveDown} disabled={isLast}></Button>
       </Tooltip>
       <Tooltip title='撤销'>
         <Button shape='circle' icon={<UndoOutlined />} onClick={undo}></Button>

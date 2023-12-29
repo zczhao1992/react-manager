@@ -297,6 +297,8 @@ export namespace LowCode {
   export interface LowCodeListItem {
     _id: string
     title: string
+    desc: string
+    imgSrc: string
     isPublished: boolean
     answerCount: number
     createdAt: string

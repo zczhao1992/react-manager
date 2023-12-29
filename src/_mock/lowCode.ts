@@ -2,12 +2,14 @@ import Mock from 'mockjs'
 
 const Random = Mock.Random
 
-function getQuestionList() {
+function getLowCodeList() {
   const list = []
   for (let i = 0; i < 10; i++) {
     list.push({
       _id: Random.id(),
       title: Random.ctitle(),
+      desc: Random.csentence(20, 30),
+      imgSrc: Random.image('320x200', '#02adea', 'Hello, World'),
       isPublished: Random.boolean(),
       answerCount: Random.natural(50, 100),
       createdAt: Random.datetime()
@@ -21,7 +23,7 @@ function getComponentList() {
     // Info
     {
       fe_id: 'c1', // 注意，由于统计页，左侧和中间需要数据完全一直，所以要写死 fe_id ，不能用 Random.id()
-      type: 'questionInfo', // 组件类型，不能重复，前后端统一好
+      type: 'LowCodeInfo', // 组件类型，不能重复，前后端统一好
       title: '问卷信息',
       isHidden: false,
       isLocked: false,
@@ -30,7 +32,7 @@ function getComponentList() {
     // Title
     {
       fe_id: 'c2',
-      type: 'questionTitle', // 组件类型，不能重复，前后端统一好
+      type: 'LowCodeTitle', // 组件类型，不能重复，前后端统一好
       title: '标题',
       isHidden: false,
       isLocked: false,
@@ -39,7 +41,7 @@ function getComponentList() {
     // Input
     {
       fe_id: 'c3',
-      type: 'questionInput',
+      type: 'LowCodeInput',
       title: '输入框1',
       isHidden: false,
       isLocked: false,
@@ -48,7 +50,7 @@ function getComponentList() {
     // Input
     {
       fe_id: 'c4',
-      type: 'questionInput',
+      type: 'LowCodeInput',
       title: '输入框2',
       isHidden: false,
       isLocked: false,
@@ -57,7 +59,7 @@ function getComponentList() {
     // Textarea
     {
       fe_id: 'c5',
-      type: 'questionTextarea',
+      type: 'LowCodeTextarea',
       title: '多行输入',
       isHidden: false,
       isLocked: false,
@@ -66,7 +68,7 @@ function getComponentList() {
     // Paragraph
     {
       fe_id: 'c6',
-      type: 'questionParagraph',
+      type: 'LowCodeParagraph',
       title: '段落',
       isHidden: false,
       isLocked: false,
@@ -75,7 +77,7 @@ function getComponentList() {
     // Radio
     {
       fe_id: 'c7',
-      type: 'questionRadio',
+      type: 'LowCodeRadio',
       title: '单选',
       isHidden: false,
       isLocked: false,
@@ -93,7 +95,7 @@ function getComponentList() {
     // Checkbox
     {
       fe_id: 'c8',
-      type: 'questionCheckbox',
+      type: 'LowCodeCheckbox',
       title: '多选',
       isHidden: false,
       isLocked: false,
@@ -140,8 +142,7 @@ Mock.mock('/lowcode/create', 'post', () => {
 })
 
 // 获取列表
-Mock.mock(/\/lowcode\/list/, 'get', opt => {
-  console.log(opt)
+Mock.mock(/\/lowcode\/list/, 'get', () => {
   return {
     code: 0,
     data: {
@@ -150,7 +151,7 @@ Mock.mock(/\/lowcode\/list/, 'get', opt => {
         pageSize: 10,
         total: 10
       },
-      list: getQuestionList()
+      list: getLowCodeList()
     },
     msg: 'success'
   }

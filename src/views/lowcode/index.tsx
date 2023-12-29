@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Button } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import Card from './components/Card'
+import CardNew from './components/CardNew'
 import ListSearch from './components/ListSearch'
 import { PlusOutlined } from '@ant-design/icons'
 import api from '@/api/lowCodeApi'
@@ -40,12 +41,13 @@ export default function LowCode() {
           <ListSearch />
         </div>
       </div>
+
       <div className={styles.content}>
         {/* 列表 */}
         {list.length > 0 &&
           list.map((q: any) => {
             const { _id } = q
-            return <Card key={_id} {...q} />
+            return <CardNew key={_id} {...q} />
           })}
       </div>
     </>

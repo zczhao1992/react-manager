@@ -1,11 +1,11 @@
-import { ComponentInfoType, lowCodeStateType } from './useLowCodeStore'
-
+// import { ComponentInfoType, lowCodeStateType } from './useLowCodeStore'
+import { LowCode } from '@/types/api'
 /**
  * 获取下一个 selectedId
  * @param fe_id 当前的 id
  * @param componentList 组件列表
  */
-export function getNextSelectedId(fe_id: string, componentList: ComponentInfoType[]) {
+export function getNextSelectedId(fe_id: string, componentList: Array<LowCode.LowCodeCompontentType>) {
   const visibleComponentList = componentList.filter(c => !c.isHidden)
   const index = visibleComponentList.findIndex(c => c.fe_id === fe_id)
   if (index < 0) return ''
@@ -26,24 +26,4 @@ export function getNextSelectedId(fe_id: string, componentList: ComponentInfoTyp
     }
   }
   return newSelectedId
-}
-
-/**
- * 插入新组件
- * @param draft state draft
- * @param newComponent 新组件
- */
-export function insertNewComponent(draft: lowCodeStateType, newComponent: ComponentInfoType) {
-  const { selectedId, componentList } = draft
-  const index = componentList.findIndex(c => c.fe_id === selectedId)
-
-  if (index < 0) {
-    // 未选中任何组件
-    draft.componentList.push(newComponent)
-  } else {
-    // 选中了组件，插入到 index 后面
-    draft.componentList.splice(index + 1, 0, newComponent)
-  }
-
-  draft.selectedId = newComponent.fe_id
 }
