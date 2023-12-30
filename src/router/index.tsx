@@ -61,6 +61,14 @@ export const routers = [
       {
         path: '/lowcode',
         element: lazyLoad(React.lazy(() => import('@/views/lowcode')))
+      },
+      {
+        path: '/proComponents',
+        element: lazyLoad(React.lazy(() => import('@/views/proComponents')))
+      },
+      {
+        path: '/chatGPT',
+        element: lazyLoad(React.lazy(() => import('@/views/chatGPT')))
       }
     ]
   },

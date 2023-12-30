@@ -312,3 +312,11 @@ export namespace LowCode {
     componentList: Array<LowCodeCompontentType>
   }
 }
+
+export namespace ProComponents {
+  export interface CityItem {
+    code: string
+    value: string
+    children: []
+  }
+}

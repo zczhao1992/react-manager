@@ -19,11 +19,11 @@
 - 🚀 整个项目集成了 TypeScript
 - 🚀 使用 zustand 做状态管理 一个巨好用的状态管理
 - 🚀 使用 TypeScript 对 Axios 二次封装 （错误拦截、常用请求封装、全局请求 Loading、取消重复请求…）
-- 🚀 使用 Antd 组件和暗黑模式
+- 🚀 使用 Antd 组件、支持暗黑模式
 - 🚀 使用 自定义高阶组件 进行路由权限拦截（403 页面）、页面和按钮权限配置
 - 🚀 支持 React-Router v6 路由懒加载配置、菜单手风琴模式、无限级菜单、多标签页、面包屑导航
 - 🚀 使用 Prettier 统一格式化代码，集成 Eslint、Stylelint 代码校验规范（项目规范配置）
-- 🚀 支持 低代码编辑器（即行业毒瘤，待更新）
+- 🚀 支持 低代码表单编辑器，支持拖拉拽、设置属性、撤销重做(有bug)
 
 ### 四、安装使用步骤 📑
 
@@ -63,19 +63,20 @@ npm run build:test
 npm run build:pro
 ```
 
-### 五、项目截图（待更新）
+### 五、项目截图
 
-#### 1、登录页：
+#### 1、首页：
 
-![hooks-login-light]()
+![react-home-light](./src/assets/images/home_show.png)
 
-![hooks-login-dark]()
+#### 2、列表页：
 
-#### 2、首页：
+![react-list-light](./src/assets/images/list_show.png)
 
-![hooks-home-light]()
+#### 3、表单编辑器：
 
-![hooks-home-dark]()
+![react-lowcode-light](./src/assets/images/lowcode_show.png)
+![react-lowcode-light](./src/assets/images/editor_show.png)
 
 ### 六、文件资源目录 📚
 

@@ -1,31 +1,33 @@
 .wrapper {
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, .06);
-    display: flex;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  height: 100%;
+  // overflow-y: auto;
+  .title {
+    flex: auto;
+    line-height: 2;
+    cursor: pointer;
+  }
 
-    .title {
-        flex: auto;
-        line-height: 2;
+  .selected {
+    color: #1890ff;
+  }
+
+  .handler {
+    width: 50px;
+    text-align: end;
+
+    .btn {
+      opacity: 0.2;
     }
+  }
 
-    .selected {
-        color: #1890ff;
-    }
-
+  &:hover {
     .handler {
-        width: 50px;
-        text-align: end;
-
-        .btn {
-            opacity: .2;
-        }
+      .btn {
+        opacity: 1;
+      }
     }
-
-    &:hover {
-        .handler {
-            .btn {
-                opacity: 1;
-            }
-        }
-    }
+  }
 }

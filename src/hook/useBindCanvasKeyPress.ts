@@ -1,13 +1,5 @@
 import { useKeyPress } from 'ahooks'
 import { ActionCreators as UndoActionCreators } from 'redux-undo'
-import {
-  removeSelectedComponent,
-  copySelectedComponent,
-  pasteCopiedComponent,
-  selectPrevComponent,
-  selectNextComponent
-} from '../store/componentsReducer'
-
 import { useLowCodeStore } from '@/store/useLowCodeStore'
 
 /**

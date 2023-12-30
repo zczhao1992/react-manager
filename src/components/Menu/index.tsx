@@ -73,7 +73,7 @@ const SideMenu = () => {
     <div className={styles.navSide}>
       <div className={styles.logo} onClick={handleClickLogo}>
         <img src={logo} className={styles.img} />
-        {collapsed ? '' : <span>行业毒瘤</span>}
+        {collapsed ? '' : <span>React-Manager</span>}
       </div>
       <Menu
         mode='inline'

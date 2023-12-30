@@ -40,7 +40,7 @@ export default function LoginFC() {
         <div className={styles.loginForm}>
           <div className={styles.loginLogo}>
             <img className={styles.loginIcon} src={logo} alt='logo' />
-            <span className={styles.loginText}>行业毒瘤系统</span>
+            <span className={styles.loginText}>React-Manager</span>
           </div>
 
           <div className={styles.loginWrapper}>

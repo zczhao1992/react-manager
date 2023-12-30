@@ -197,6 +197,8 @@ export const useLowCodeStore = create<lowCodeStateType>((set, get) => ({
     const selectedComponent = componentList.find(c => c.fe_id === selectedId)
     if (selectedComponent == null) return
 
+    console.log('ddddddddd', cloneDeep(selectedComponent))
+
     set({
       copiedComponent: cloneDeep(selectedComponent) // 深拷贝
     })
@@ -208,9 +210,6 @@ export const useLowCodeStore = create<lowCodeStateType>((set, get) => ({
 
     // 要把 fe_id 给修改了，重要！！
     copiedComponent.fe_id = nanoid()
-
-    // 插入 copiedComponent
-    // insertNewComponent(draft, copiedComponent)
 
     const index = componentList.findIndex(c => c.fe_id === selectedId)
 

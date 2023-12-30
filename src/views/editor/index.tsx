@@ -12,14 +12,16 @@ export default function Editor() {
 
   const { changeSelectedId } = useLowCodeStore()
 
-  const clearSelectedId = () => {
-    changeSelectedId('')
+  const clearSelectedId = (e: any) => {
+    if (e.target.className.includes('content')) {
+      changeSelectedId('')
+    }
   }
 
   return (
-    <div className={styles.container} onClick={clearSelectedId}>
+    <div className={styles.container}>
       <EditHeader />
-      <div className={styles.content}>
+      <div className={styles.content} onClick={e => clearSelectedId(e)}>
         <div className={styles.left}>
           <LeftPanel />
         </div>
