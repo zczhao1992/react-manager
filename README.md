@@ -6,7 +6,7 @@
 
 ### 一、在线预览地址 👀
 
-- Link：(待更新)
+- Link(可能需要翻墙)：https://react-manager-j8ix8sztd-zczhao613.vercel.app/
 
 ### 二、Git 仓库地址 (欢迎 Star⭐)
 
