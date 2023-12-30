@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import { Form, Input, Checkbox } from 'antd'
 import { LowCodeParagraphPropsType } from './interface'
 

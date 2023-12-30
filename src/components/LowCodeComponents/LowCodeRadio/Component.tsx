@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Typography, Radio, Space } from 'antd'
 import { LowCodeRadioPropsType, LowCodeRadioDefaultProps } from './interface'
 

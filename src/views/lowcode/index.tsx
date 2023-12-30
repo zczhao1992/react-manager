@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Button } from 'antd'
 import { useNavigate } from 'react-router-dom'
-import Card from './components/Card'
+// import Card from './components/Card'
 import CardNew from './components/CardNew'
 import ListSearch from './components/ListSearch'
 import { PlusOutlined } from '@ant-design/icons'

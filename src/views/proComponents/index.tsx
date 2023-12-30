@@ -10,7 +10,7 @@ export default function ProComponents() {
     city: ['130100', '120100'],
     province: ['120000', '130000']
   }
-  const onSelectChange = val => {
+  const onSelectChange = (val: any) => {
     setCityData(val)
   }
   return (

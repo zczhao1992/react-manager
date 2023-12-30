@@ -1,9 +1,9 @@
-export const getCityDataMap = list => {
-  const cityMap = {}
+export const getCityDataMap = (list: any) => {
+  const cityMap: any = {}
 
-  const cityList = list.reduce((pre, cur) => {
-    const children = (cur.children || []).reduce((chPre, chCur) => {
-      const childList = (chCur.children || []).reduce((garPre, garCur) => {
+  const cityList = list.reduce((pre: any, cur: any) => {
+    const children = (cur.children || []).reduce((chPre: any, chCur: any) => {
+      const childList = (chCur.children || []).reduce((garPre: any, garCur: any) => {
         garPre.push({
           value: garCur.code,
           label: garCur.value

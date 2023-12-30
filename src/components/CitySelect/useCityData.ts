@@ -3,8 +3,8 @@ import api from '@/api/proComponentsApi'
 import { getCityDataMap } from './utils'
 
 function useCityData() {
-  const [cityList, setCityList] = useState([])
-  const [cityMap, setCityMap] = useState({})
+  const [cityList, setCityList] = useState<any>([])
+  const [cityMap, setCityMap] = useState<any>({})
 
   const getCityList = async () => {
     const cityData = await api.getCityList()

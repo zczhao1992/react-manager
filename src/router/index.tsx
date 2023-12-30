@@ -1,5 +1,5 @@
 import React from 'react'
-import { createHashRouter, Navigate, useRoutes } from 'react-router-dom'
+import { createHashRouter, Navigate } from 'react-router-dom'
 import Login from '@/views/login/Login'
 import Welcome from '@/views/welcome'
 import Error403 from '@/views/403'

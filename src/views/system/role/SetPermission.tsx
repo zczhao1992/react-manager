@@ -28,6 +28,7 @@ export default function SetPermission(props: IModalProp<Role.RoleItem>) {
     }
   })
   const open = (type: IAction, data?: Role.RoleItem) => {
+    console.log(type)
     setVisible(true)
     setRoleInfo(data)
     setCheckedKeys(data?.permissionList.checkedKeys || [])

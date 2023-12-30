@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Layout, theme, Watermark } from 'antd'
+import { Layout, Watermark } from 'antd'
 import { Navigate, Outlet, useLocation, useRouteLoaderData } from 'react-router-dom'
 import NavHeader from '@/components/NavHeader'
 import NavFooter from '@/components/NavFooter'
@@ -12,7 +12,7 @@ import { routers } from '@/router'
 import TabsFC from '@/components/Tabs'
 import styles from './index.module.less'
 
-const { Content, Sider } = Layout
+const { Sider } = Layout
 
 const App: React.FC = () => {
   const { collapsed, userInfo, updateUserInfo } = useUserStore()

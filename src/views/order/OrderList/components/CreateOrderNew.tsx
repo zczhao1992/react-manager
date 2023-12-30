@@ -1,8 +1,8 @@
 import { IModalProp } from '@/types/modal'
-import { Col, Form, Input, Modal, Row, Select, DatePicker } from 'antd'
-import { useEffect, useImperativeHandle, useState } from 'react'
+import { Modal } from 'antd'
+import { useImperativeHandle, useState } from 'react'
 import api from '@/api/orderApi'
-import { Order } from '@/types/api'
+// import { Order } from '@/types/api'
 import { message } from '@/utils/AntdGlobal'
 import FormRender, { useForm } from 'form-render'
 

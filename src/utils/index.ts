@@ -23,8 +23,11 @@ export const formatNum = (num?: number | string) => {
 export const toLocalDate = (date?: Date, rule?: string) => {
   let curDate = new Date()
   if (date) curDate = date
+  // @ts-ignore
   if (rule === 'yyyy-MM-dd') return curDate.toLocaleDateString().replaceAll('/', '-')
+  // @ts-ignore
   if (rule === 'HH:mm:ss') return curDate.toLocaleTimeString().replaceAll('/', '-')
+  // @ts-ignore
   return curDate.toLocaleString().replaceAll('/', '-')
 }
 
@@ -47,7 +50,7 @@ export const formatDate = (date?: Date | string, rule?: string) => {
     's+': curDate.getSeconds()
   }
   for (const k in O) {
-    const val = O[k].toString()
+    // const val = O[k].toString()
     fmt = fmt.replace(new RegExp(`(${k})`), O[k] > 9 ? O[k].toString() : '0' + O[k].toString())
     // fmt = fmt.replace(new RegExp(`(${k})`), ('00' + val).substring(val.length))
   }

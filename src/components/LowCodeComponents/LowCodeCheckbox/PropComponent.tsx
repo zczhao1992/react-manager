@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Form, Input, Checkbox, Space, Button } from 'antd'
 import { nanoid } from 'nanoid'
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons'

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Typography, Space, Checkbox } from 'antd'
 import { LowCodeCheckboxDefaultProps, LowCodeCheckboxPropsType } from './interface'
 

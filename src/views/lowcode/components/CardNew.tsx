@@ -11,7 +11,7 @@ export default function CardNew(props: LowCode.LowCodeListItem) {
 
   const [messageApi, contextHolder] = message.useMessage()
 
-  const { _id, title, desc, imgSrc, createdAt, answerCount, isPublished } = props
+  const { _id, title, desc, imgSrc, createdAt, isPublished } = props
 
   const del = (event: React.MouseEvent<HTMLElement>) => {
     event.stopPropagation()

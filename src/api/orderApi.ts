@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-import { Order, ResultData, Role } from '@/types/api'
+import { Order, ResultData } from '@/types/api'
 import '@/_mock/order'
 
 export default {

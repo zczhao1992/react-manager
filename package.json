@@ -26,6 +26,7 @@
     "axios": "^1.6.2",
     "classnames": "^2.5.0",
     "echarts": "^5.4.3",
+    "form-render": "^2.3.7",
     "less": "^4.2.0",
     "lodash.clonedeep": "^4.5.0",
     "mockjs": "^1.1.0",
@@ -35,6 +36,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
     "redux-undo": "^1.0.1",
+    "vite-plugin-html": "^3.2.1",
     "zustand": "^4.4.6"
   },
   "devDependencies": {

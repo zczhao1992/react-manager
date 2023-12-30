@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Select } from 'antd'
 import useCityData from './useCityData'
 
-const cityLabelMap = {
+const cityLabelMap: any = {
   '0': {
     labelText: '省',
     key: 'province'
@@ -17,7 +17,13 @@ const cityLabelMap = {
   }
 }
 
-function CitySelect({ value, onChange }) {
+type CitySelectProp = {
+  value: any
+  onChange: (p: any) => void
+}
+
+function CitySelect(props: CitySelectProp) {
+  const { value, onChange } = props
   const { cityList, cityMap } = useCityData()
 
   const selectProps = {
@@ -26,15 +32,15 @@ function CitySelect({ value, onChange }) {
     placeholde: 'Please select'
   }
 
-  const [selectData, setSelectData] = useState(null)
-  const [selectOptions, setSelectOptions] = useState({
+  const [selectData, setSelectData] = useState<any>()
+  const [selectOptions, setSelectOptions] = useState<any>({
     '0': [],
     '1': [],
     '2': []
   })
 
   // 清理下拉框
-  const clearOptions = index => {
+  const clearOptions = (index: number) => {
     if (index === 0) {
       setSelectData({
         province: [],
@@ -66,9 +72,9 @@ function CitySelect({ value, onChange }) {
     }
   }
 
-  const onSelectChange = (val, index) => {
+  const onSelectChange = (val: any, index: number) => {
     if (index != 2) {
-      let nextList = val.reduce((pre, cur) => {
+      let nextList = val.reduce((pre: any, cur: any) => {
         pre.push(...cityMap[cur].children)
         return pre
       }, [])
@@ -95,9 +101,9 @@ function CitySelect({ value, onChange }) {
       })
   }
 
-  const onOptionsChange = value => {
-    const getChildrenList = arr => {
-      return arr.reduce((pre, cur) => {
+  const onOptionsChange = (value: any) => {
+    const getChildrenList = (arr: any) => {
+      return arr.reduce((pre: any, cur: any) => {
         pre.push(...cityMap[cur].children)
         return pre
       }, [])
