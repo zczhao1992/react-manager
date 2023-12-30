@@ -1,6 +1,6 @@
 import EditCanvas from './components/EditCanvas'
 import EditHeader from './components/EditHeader'
-import LeftPanel from './components/LeftPanel'
+import LeftPanel from './components/leftPanel'
 import RightPanel from './components/RightPanel'
 import useEditor from './useEditor'
 import { useLowCodeStore } from '@/store/useLowCodeStore'
