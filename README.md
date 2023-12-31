@@ -15,7 +15,7 @@
 ### 三、🔨🔨🔨 项目功能
 
 - 🚀 采用最新技术找开发：React18、React-Router v6、React-Hooks、TypeScript、Vite
-- 🚀 采用 Vite 作为项目开发、打包工具（配置了 Gzip 打包、跨域代理、打包预览工具…）
+- 🚀 采用 Vite 作为项目开发、打包工具
 - 🚀 整个项目集成了 TypeScript
 - 🚀 使用 zustand 做状态管理 一个巨好用的状态管理
 - 🚀 使用 TypeScript 对 Axios 二次封装 （错误拦截、常用请求封装、全局请求 Loading、取消重复请求…）

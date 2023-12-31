@@ -1071,51 +1071,51 @@ Mock.mock('/users/getPermissionList', 'get', () => {
               createId: 1000002
             }
           ]
-        },
-        {
-          _id: '63f07a438c74bdc1340c2851',
-          menuType: 1,
-          menuName: 'ChatGPT',
-          path: '/chatGPT',
-          menuState: 1,
-          parentId: '',
-          createTime: '2023-02-16T05:59:25.800Z',
-          updateTime: '2023-05-27T06:24:19.811Z',
-          __v: 0,
-          orderBy: 4,
-          icon: 'RocketOutlined',
-          createId: 1000002,
-          children: [
-            {
-              _id: '63f0888054db6c7dc7fd17e6',
-              menuType: 2,
-              menuName: '查看',
-              menuCode: 'dashboard@query',
-              orderBy: 0,
-              menuState: 1,
-              parentId: '63f07a438c74bdc1580c2850',
-              createTime: '2023-02-18T08:12:46.705Z',
-              updateTime: '2023-02-28T14:32:56.421Z',
-              __v: 0,
-              createId: 1000002
-            }
-          ],
-          buttons: [
-            {
-              _id: '63f0888054db6c7dc7fd17e6',
-              menuType: 2,
-              menuName: '查看',
-              menuCode: 'dashboard@query',
-              orderBy: 0,
-              menuState: 1,
-              parentId: '63f07a438c74bdc1580c2850',
-              createTime: '2023-02-18T08:12:46.705Z',
-              updateTime: '2023-02-28T14:32:56.421Z',
-              __v: 0,
-              createId: 1000002
-            }
-          ]
         }
+        // {
+        //   _id: '63f07a438c74bdc1340c2851',
+        //   menuType: 1,
+        //   menuName: 'ChatGPT',
+        //   path: '/chatGPT',
+        //   menuState: 1,
+        //   parentId: '',
+        //   createTime: '2023-02-16T05:59:25.800Z',
+        //   updateTime: '2023-05-27T06:24:19.811Z',
+        //   __v: 0,
+        //   orderBy: 4,
+        //   icon: 'RocketOutlined',
+        //   createId: 1000002,
+        //   children: [
+        //     {
+        //       _id: '63f0888054db6c7dc7fd17e6',
+        //       menuType: 2,
+        //       menuName: '查看',
+        //       menuCode: 'dashboard@query',
+        //       orderBy: 0,
+        //       menuState: 1,
+        //       parentId: '63f07a438c74bdc1580c2850',
+        //       createTime: '2023-02-18T08:12:46.705Z',
+        //       updateTime: '2023-02-28T14:32:56.421Z',
+        //       __v: 0,
+        //       createId: 1000002
+        //     }
+        //   ],
+        //   buttons: [
+        //     {
+        //       _id: '63f0888054db6c7dc7fd17e6',
+        //       menuType: 2,
+        //       menuName: '查看',
+        //       menuCode: 'dashboard@query',
+        //       orderBy: 0,
+        //       menuState: 1,
+        //       parentId: '63f07a438c74bdc1580c2850',
+        //       createTime: '2023-02-18T08:12:46.705Z',
+        //       updateTime: '2023-02-28T14:32:56.421Z',
+        //       __v: 0,
+        //       createId: 1000002
+        //     }
+        //   ]
+        // }
       ]
     },
     msg: 'success'
