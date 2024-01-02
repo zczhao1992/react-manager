@@ -109,13 +109,13 @@ function CitySelect(props: CitySelectProps) {
         return (
           <span key={index}>
             <span>{InitValue[item].labelText}</span>
-            {/* <Select
+            <Select
               {...item}
               value={selectData ? selectData[cityLabelMap[index].key] : []}
               onChange={val => onSelectChange(val, index)}
               style={{ width: '130px', marginRight: '10px' }}
               options={selectOptions[index] || cityList}
-            /> */}
+            />
           </span>
         )
       })}
