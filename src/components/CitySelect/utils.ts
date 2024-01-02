@@ -1,9 +1,12 @@
-export const getCityDataMap = (list: any) => {
-  const cityMap: any = {}
+import { CityMapType, OriginCityData, CityMapItem, TransFormCityDataFn, InitValueType } from './interface'
+import { ProComponents } from '@/types/api'
 
-  const cityList = list.reduce((pre: any, cur: any) => {
-    const children = (cur.children || []).reduce((chPre: any, chCur: any) => {
-      const childList = (chCur.children || []).reduce((garPre: any, garCur: any) => {
+export const getCityDataMap: TransFormCityDataFn = (list: ProComponents.CityItem[]) => {
+  const cityMap: CityMapType = {}
+
+  const cityList = list.reduce((pre: CityMapItem[], cur: OriginCityData) => {
+    const children = (cur.children || []).reduce((chPre: CityMapItem[], chCur: OriginCityData) => {
+      const childList = (chCur.children || []).reduce((garPre: CityMapItem[], garCur: OriginCityData) => {
         garPre.push({
           value: garCur.code,
           label: garCur.value
@@ -51,4 +54,28 @@ export const getCityDataMap = (list: any) => {
   }, [])
 
   return { cityMap, cityList }
+}
+
+export const InitValue: InitValueType = {
+  province: {
+    labelText: '省',
+    key: 'province',
+    mode: 'multiple',
+    allowClear: true,
+    placeholde: 'Please select'
+  },
+  city: {
+    labelText: '市',
+    key: 'city',
+    mode: 'multiple',
+    allowClear: true,
+    placeholde: 'Please select'
+  },
+  area: {
+    labelText: '区',
+    key: 'area',
+    mode: 'multiple',
+    allowClear: true,
+    placeholde: 'Please select'
+  }
 }

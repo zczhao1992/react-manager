@@ -317,6 +317,6 @@ export namespace ProComponents {
   export interface CityItem {
     code: string
     value: string
-    children: []
+    children?: CityItem[]
   }
 }

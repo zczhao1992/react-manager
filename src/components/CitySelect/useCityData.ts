@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import api from '@/api/proComponentsApi'
+import { CityMapType, CityMapItem } from './interface'
 import { getCityDataMap } from './utils'
 
 function useCityData() {
-  const [cityList, setCityList] = useState<any>([])
-  const [cityMap, setCityMap] = useState<any>({})
+  const [cityList, setCityList] = useState<CityMapItem[]>([])
+  const [cityMap, setCityMap] = useState<CityMapType>({})
 
   const getCityList = async () => {
     const cityData = await api.getCityList()

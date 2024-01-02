@@ -3,6 +3,7 @@ import { useUserStore } from '@/store/useUserStore'
 import { Button, Form, Input, message } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import loginLeft from '@/assets/images/login_left.png'
+import { useNavigate } from 'react-router-dom'
 import api from '@/api'
 import logo from '@/assets/images/logo.png'
 import { Login } from '@/types/api'
@@ -11,8 +12,10 @@ import styles from './index.module.less'
 
 export default function LoginFC() {
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   const updateToken = useUserStore(state => state.updateToken)
+
   const onFinish = async (values: Login.params) => {
     try {
       setLoading(true)
@@ -22,9 +25,10 @@ export default function LoginFC() {
       storage.set('token', data)
       updateToken(data)
       message.success('登录成功')
-      const params = new URLSearchParams(location.search)
+      // const params = new URLSearchParams(location.search)
       setTimeout(() => {
-        location.href = params.get('callback') || '/welcome'
+        // location.href = params.get('callback') || '/welcome'
+        navigate('/welcome')
       })
     } catch (error) {
       setLoading(false)

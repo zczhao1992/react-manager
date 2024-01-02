@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import { Switch, Dropdown } from 'antd'
+import { useNavigate } from 'react-router-dom'
 import type { MenuProps } from 'antd'
 import { useUserStore } from '@/store/useUserStore'
 import storage from '@/utils/storage'
@@ -9,10 +10,14 @@ import userImg from '@/assets/images/avatar.png'
 import styles from './index.module.less'
 
 const NavHeader = () => {
+  const navigate = useNavigate()
+
   const { userInfo, collapsed, isDark, updateCollapsed, updateTheme } = useUserStore()
+
   useEffect(() => {
     handleSwitch(isDark)
   }, [])
+
   const items: MenuProps['items'] = [
     {
       key: 'email',
@@ -32,7 +37,8 @@ const NavHeader = () => {
   const onClick: MenuProps['onClick'] = ({ key }) => {
     if (key === 'logout') {
       storage.remove('token')
-      location.href = '/login?callback=' + encodeURIComponent(location.href)
+      navigate('/login')
+      // location.href = '/login?callback=' + encodeURIComponent(location.href)
     }
   }
 

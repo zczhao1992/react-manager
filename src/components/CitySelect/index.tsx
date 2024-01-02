@@ -1,36 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Select } from 'antd'
+import { CitySelectProps } from './interface'
+import { InitValue } from './utils'
 import useCityData from './useCityData'
 
-const cityLabelMap: any = {
-  '0': {
-    labelText: '省',
-    key: 'province'
-  },
-  '1': {
-    labelText: '市',
-    key: 'city'
-  },
-  '2': {
-    labelText: '区',
-    key: 'area'
-  }
-}
-
-type CitySelectProp = {
-  value: any
-  onChange: (p: any) => void
-}
-
-function CitySelect(props: CitySelectProp) {
+function CitySelect(props: CitySelectProps) {
   const { value, onChange } = props
   const { cityList, cityMap } = useCityData()
-
-  const selectProps = {
-    mode: 'multiple',
-    allowClear: true,
-    placeholde: 'Please select'
-  }
 
   const [selectData, setSelectData] = useState<any>()
   const [selectOptions, setSelectOptions] = useState<any>({
@@ -129,17 +105,17 @@ function CitySelect(props: CitySelectProp) {
 
   return (
     <div>
-      {new Array(3).fill(selectProps).map((item, index) => {
+      {Object.keys(InitValue).map((item, index) => {
         return (
           <span key={index}>
-            <span>{cityLabelMap[index].labelText}</span>
-            <Select
+            <span>{InitValue[item].labelText}</span>
+            {/* <Select
               {...item}
               value={selectData ? selectData[cityLabelMap[index].key] : []}
               onChange={val => onSelectChange(val, index)}
               style={{ width: '130px', marginRight: '10px' }}
               options={selectOptions[index] || cityList}
-            />
+            /> */}
           </span>
         )
       })}

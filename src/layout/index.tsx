@@ -41,7 +41,7 @@ const App: React.FC = () => {
   }, [])
 
   return (
-    <Watermark content='Zhao.C'>
+    <Watermark content={userInfo.userName}>
       {userInfo._id ? (
         <Layout>
           <Sider collapsed={collapsed}>

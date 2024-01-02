@@ -13,7 +13,7 @@ Mock.mock('/api/test', 'get', () => {
 Mock.mock('/users/login', 'post', () => {
   return {
     code: 0,
-    data: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjYzYmMzMWM4MzAwNzMyYzI3Njk3ZjFmZCIsInVzZXJJZCI6MTAwMDAxNiwidXNlck5hbWUiOiJKYWNrTWEiLCJ1c2VyRW1haWwiOiJkZW1vQG1hcnMuY29tIiwiZGVwdElkIjoiNjNiYzA5ZmUxYTAwY2U3NGVlYjMzMzExIiwic3RhdGUiOjEsInJvbGUiOjIsInJvbGVMaXN0IjoiNjNiYzMxNzUzMDA3MzJjMjc2OTdmMWRmIiwiZGVwdE5hbWUiOiLlpKfliY3nq68iLCJ1c2VySW1nIjoiaHR0cDovL2FwaS1kcml2ZXIubWFyc3ZpZXcuY2MvYWEwNjUyZDAxM2EyMTc2YmZhYWFmMmMwMC5qcGVnIiwiam9iIjoi5YmN56uv5bel56iL5biIIiwibW9iaWxlIjoiMTg2MTA5OTY2NiIsImNyZWF0ZUlkIjoxMDAwMDAyfSwiaWF0IjoxNzAwNTQ2MzkxLCJleHAiOjE3MDA1Njc5OTF9.6_P2HZJtnFDGWiFmNS3mdc3amXKiRAPdlNZGUBA9nc8',
+    data: Mock.Random.word(20),
     msg: 'success'
   }
 })
@@ -24,8 +24,8 @@ Mock.mock('/users/getUserInfo', 'get', () => {
     data: {
       _id: '63bc321300732c27697f203',
       userId: 1000017,
-      userName: 'Zhao.C',
-      userEmail: 'zczhao1992@163.com',
+      userName: Mock.Random.cname(),
+      userEmail: Mock.Random.email('alibaba.com'),
       deptId: '63bc321300732c27697f203',
       state: 1,
       mobile: '21321312323',
