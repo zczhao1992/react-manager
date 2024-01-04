@@ -81,7 +81,7 @@ npm run build:pro
 ### 六、文件资源目录 📚
 
 ```text
-Hooks-Admin
+React-Manager
 ├─ public                 # 静态资源文件（忽略打包）
 ├─ src
 │  ├─ _mock               # mock数据
