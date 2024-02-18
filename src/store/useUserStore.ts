@@ -7,7 +7,9 @@ export const useUserStore = create<{
   userInfo: User.UserItem
   collapsed: boolean
   isDark: boolean
+  language: string
   updateToken: (token: string) => void
+  updateLanguage: (lang: string) => void
   updateUserInfo: (userInfo: User.UserItem) => void
   updateCollapsed: () => void
   updateTheme: (isDark: boolean) => void
@@ -28,6 +30,7 @@ export const useUserStore = create<{
     deptName: '',
     userImg: ''
   },
+  language: 'zh',
   collapsed: false,
   isDark: storage.get('isDark') || false,
   updateToken: token => set({ token }),
@@ -38,5 +41,6 @@ export const useUserStore = create<{
       return {
         collapsed: !state.collapsed
       }
-    })
+    }),
+  updateLanguage: language => set({ language })
 }))

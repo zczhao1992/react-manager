@@ -1,18 +1,19 @@
 import { useEffect } from 'react'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
-import { Switch, Dropdown } from 'antd'
+import { Switch, Dropdown, Menu } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import type { MenuProps } from 'antd'
 import { useUserStore } from '@/store/useUserStore'
 import storage from '@/utils/storage'
 import BreadCrumb from './BreadCrumb'
 import userImg from '@/assets/images/avatar.png'
+import Langimg from '@/assets/images/language.png'
 import styles from './index.module.less'
 
 const NavHeader = () => {
   const navigate = useNavigate()
 
-  const { userInfo, collapsed, isDark, updateCollapsed, updateTheme } = useUserStore()
+  const { userInfo, collapsed, isDark, language, updateLanguage, updateCollapsed, updateTheme } = useUserStore()
 
   useEffect(() => {
     handleSwitch(isDark)
@@ -54,6 +55,25 @@ const NavHeader = () => {
     updateTheme(isDark)
   }
 
+  const LangMenu = (
+    <Menu
+      items={[
+        {
+          key: '1',
+          label: <span>简体中文</span>,
+          onClick: () => updateLanguage('zh'),
+          disabled: language === 'zh'
+        },
+        {
+          key: '2',
+          label: <span>English</span>,
+          onClick: () => updateLanguage('en'),
+          disabled: language === 'en'
+        }
+      ]}
+    />
+  )
+
   return (
     <div className={styles.navHeader}>
       <div className={styles.left}>
@@ -63,6 +83,10 @@ const NavHeader = () => {
         <BreadCrumb />
       </div>
       <div className={styles.right}>
+        <Dropdown overlay={LangMenu} placement='bottom' trigger={['click']} arrow={{ pointAtCenter: true }}>
+          <img src={Langimg} alt='Langimg' className={styles.icon} />
+        </Dropdown>
+
         <Switch
           checked={isDark}
           checkedChildren='暗黑'
