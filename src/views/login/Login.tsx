@@ -8,11 +8,14 @@ import api from '@/api'
 import logo from '@/assets/images/logo.png'
 import { Login } from '@/types/api'
 import storage from '@/utils/storage'
+import { useTranslation } from 'react-i18next'
 import styles from './index.module.less'
 
 export default function LoginFC() {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
+
+  const { t } = useTranslation()
 
   const updateToken = useUserStore(state => state.updateToken)
 
@@ -24,7 +27,7 @@ export default function LoginFC() {
       setLoading(false)
       storage.set('token', data)
       updateToken(data)
-      message.success('登录成功')
+      message.success(t('login.success'))
       // const params = new URLSearchParams(location.search)
       setTimeout(() => {
         // location.href = params.get('callback') || '/welcome'
@@ -54,17 +57,21 @@ export default function LoginFC() {
               onFinish={onFinish}
               autoComplete='off'
             >
-              <Form.Item name='userName' rules={[{ required: true, message: '请输入用户名！' }]}>
-                <Input placeholder='用户名：admin / user' prefix={<UserOutlined />} />
+              <Form.Item name='userName' rules={[{ required: true, message: t('login.userNameRuleMes') }]}>
+                <Input placeholder={`${t('login.username')}: admin / user`} prefix={<UserOutlined />} />
               </Form.Item>
 
-              <Form.Item name='userPwd' rules={[{ required: true, message: '请输入密码！' }]}>
-                <Input.Password autoComplete='new-password' placeholder='密码：123456' prefix={<LockOutlined />} />
+              <Form.Item name='userPwd' rules={[{ required: true, message: t('login.passwordRuleMes') }]}>
+                <Input.Password
+                  autoComplete='new-password'
+                  placeholder={`${t('login.password')}: 123456`}
+                  prefix={<LockOutlined />}
+                />
               </Form.Item>
 
               <Form.Item>
                 <Button type='primary' block htmlType='submit' loading={loading}>
-                  登录
+                  {t('login.confirm')}
                 </Button>
               </Form.Item>
             </Form>

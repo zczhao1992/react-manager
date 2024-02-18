@@ -8,10 +8,13 @@ import storage from '@/utils/storage'
 import BreadCrumb from './BreadCrumb'
 import userImg from '@/assets/images/avatar.png'
 import Langimg from '@/assets/images/language.png'
+import { useTranslation } from 'react-i18next'
 import styles from './index.module.less'
 
 const NavHeader = () => {
   const navigate = useNavigate()
+
+  const { t } = useTranslation()
 
   const { userInfo, collapsed, isDark, language, updateLanguage, updateCollapsed, updateTheme } = useUserStore()
 
@@ -22,11 +25,11 @@ const NavHeader = () => {
   const items: MenuProps['items'] = [
     {
       key: 'email',
-      label: '邮箱：' + userInfo.userEmail
+      label: `${t('header.email')}: ` + userInfo.userEmail
     },
     {
       key: 'logout',
-      label: '退出'
+      label: t('header.logout')
     }
   ]
 
@@ -89,8 +92,8 @@ const NavHeader = () => {
 
         <Switch
           checked={isDark}
-          checkedChildren='暗黑'
-          unCheckedChildren='默认'
+          checkedChildren={t('header.darkMode')}
+          unCheckedChildren={t('header.lightMode')}
           style={{ marginRight: 10 }}
           onChange={handleSwitch}
         />

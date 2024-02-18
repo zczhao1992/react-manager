@@ -1,8 +1,11 @@
 import { Button, Result } from 'antd'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
 function NotFound() {
   const navigate = useNavigate()
+
+  const { t } = useTranslation()
 
   const handleClick = () => {
     navigate('/')
@@ -12,10 +15,10 @@ function NotFound() {
     <Result
       status='404'
       title='404'
-      subTitle='抱歉，您访问的页面不存在。'
+      subTitle={t('result.notFoundPage')}
       extra={
         <Button type='primary' onClick={handleClick}>
-          回到首页
+          {t('result.backHome')}
         </Button>
       }
     />

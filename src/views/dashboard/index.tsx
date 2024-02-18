@@ -6,10 +6,12 @@ import { useEffect, useState } from 'react'
 import api from '@/api'
 import { Dashboard } from '@/types/api'
 import { useCharts } from '@/hook/useCharts'
+import { useTranslation } from 'react-i18next'
 import userImg from '@/assets/images/avatar.png'
 import styles from './index.module.less'
 
 export default function DashBoard() {
+  const { t } = useTranslation()
   const userInfo = useUserStore(state => state.userInfo)
   const [report, setReport] = useState<Dashboard.ReportData>()
 
@@ -166,30 +168,30 @@ export default function DashBoard() {
     <div className={styles.dashboard}>
       <div className={styles.userInfo}>
         <img src={userImg} className={styles.userImg} />
-        <Descriptions title='欢迎新同学，每天都要开心！'>
-          <Descriptions.Item label='用户ID'>{userInfo.userId}</Descriptions.Item>
-          <Descriptions.Item label='邮箱'>{userInfo.userEmail}</Descriptions.Item>
-          <Descriptions.Item label='状态'>{formatState(userInfo.state)}</Descriptions.Item>
-          <Descriptions.Item label='手机号'>{userInfo.mobile}</Descriptions.Item>
-          <Descriptions.Item label='岗位'>{userInfo.job}</Descriptions.Item>
-          <Descriptions.Item label='部门'>{userInfo.deptName}</Descriptions.Item>
+        <Descriptions title={t('dashboard.desTitle')}>
+          <Descriptions.Item label={t('dashboard.userID')}>{userInfo.userId}</Descriptions.Item>
+          <Descriptions.Item label={t('dashboard.email')}>{userInfo.userEmail}</Descriptions.Item>
+          <Descriptions.Item label={t('dashboard.status')}>{formatState(userInfo.state)}</Descriptions.Item>
+          <Descriptions.Item label={t('dashboard.mobile')}>{userInfo.mobile}</Descriptions.Item>
+          <Descriptions.Item label={t('dashboard.job')}>{userInfo.job}</Descriptions.Item>
+          <Descriptions.Item label={t('dashboard.department')}>{userInfo.deptName}</Descriptions.Item>
         </Descriptions>
       </div>
       <div className={styles.report}>
         <div className={styles.card}>
-          <div className='title'>数量</div>
+          <div className='title'>{t('dashboard.amount')}</div>
           <div className={styles.data}>{formatNum(report?.driverCount)}个</div>
         </div>
         <div className={styles.card}>
-          <div className='title'>总流水</div>
+          <div className='title'>{t('dashboard.total')}</div>
           <div className={styles.data}>{formatMoney(report?.totalMoney)}元</div>
         </div>
         <div className={styles.card}>
-          <div className='title'>总订单</div>
+          <div className='title'>{t('dashboard.orderTotal')}</div>
           <div className={styles.data}>{formatNum(report?.orderCount)}单</div>
         </div>
         <div className={styles.card}>
-          <div className='title'>开通城市</div>
+          <div className='title'>{t('dashboard.openingCities')}</div>
           <div className={styles.data}>{formatNum(report?.cityNum)}座</div>
         </div>
       </div>
@@ -198,7 +200,7 @@ export default function DashBoard() {
           title='订单和流水走势图'
           extra={
             <Button type='primary' onClick={renderLineChart}>
-              刷新
+              {t('dashboard.refresh')}
             </Button>
           }
         >
@@ -210,7 +212,7 @@ export default function DashBoard() {
           title='人员分布'
           extra={
             <Button type='primary' onClick={handleRefresh}>
-              刷新
+              {t('dashboard.refresh')}
             </Button>
           }
         >
@@ -225,7 +227,7 @@ export default function DashBoard() {
           title='模型诊断'
           extra={
             <Button type='primary' onClick={renderRadarChart}>
-              刷新
+              {t('dashboard.refresh')}
             </Button>
           }
         >

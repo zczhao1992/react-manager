@@ -2,6 +2,7 @@ import { IAuthLoader } from '@/router/AuthLoader'
 import { searchRoute } from '@/utils'
 import { Tabs } from 'antd'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate, useRouteLoaderData } from 'react-router-dom'
 interface TabsItem {
   key: string
@@ -10,7 +11,10 @@ interface TabsItem {
 }
 export default function TabsFC() {
   const { pathname } = useLocation()
-  const [tabsList, setTabsList] = useState<TabsItem[]>([{ key: '/welcome', label: '首页', closable: false }])
+
+  const { t } = useTranslation()
+
+  const [tabsList, setTabsList] = useState<TabsItem[]>([{ key: '/welcome', label: t('tabs.home'), closable: false }])
   const [activeKey, setActiveKey] = useState('')
   const data = useRouteLoaderData('layout') as IAuthLoader
   const navigate = useNavigate()
