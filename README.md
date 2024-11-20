@@ -6,7 +6,8 @@
 
 ### 一、在线预览地址 👀
 
-- Link(可能需要翻墙)：https://react-manager.vercel.app
+- vercel(需要翻墙)：https://react-manager.vercel.app
+- netlify(无需翻墙)：https://react-manager-zc.netlify.app/
 
 ### 二、Git 仓库地址 (欢迎 Star⭐)
 
